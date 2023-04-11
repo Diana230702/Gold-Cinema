@@ -9,3 +9,22 @@
 .logo{
     width: 75px;
 }
+.auth-btn{
+    list-style-type: none;
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    padding: 5px;
+    border-radius: 5px;
+    border: 2px solid black;
+    background-color: transparent;
+    font-weight: 500;
+}
+.formOrder-btn{
+    list-style-type: none;
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    
+  font-weight: 500;
+    border-radius: 5px;
+    background-color: transparent;
+}
