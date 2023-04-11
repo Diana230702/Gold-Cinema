@@ -1,4 +1,4 @@
-.navbar{
+.main-nav{
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -23,8 +23,17 @@
     list-style-type: none;
     text-decoration: none;
     color: rgb(0, 0, 0);
-    
-  font-weight: 500;
-    border-radius: 5px;
+    font-weight: 500;
     background-color: transparent;
 }
+.productList-nav-link{
+    color: white;
+    list-style-type: none;
+    text-decoration: none;
+  }
+  .admin-nav-link{
+    color: white;
+    list-style-type: none;
+    text-decoration: none;
+
+    }
