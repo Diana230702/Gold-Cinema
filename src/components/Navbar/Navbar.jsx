@@ -16,7 +16,7 @@ const pages = [
     link: "/",
     id: 1,
   },
-  { name: "Выбрать фильм", link: "/productList", id: 2 },
+  { name: "Выбрать фильм ", link: "/productList", id: 2 },
   { name: "AdminPage", link: "/admin", id: 3 },
 ];
 // ! links----------------------------------------------------------
