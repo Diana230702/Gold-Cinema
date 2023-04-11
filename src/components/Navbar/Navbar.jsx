@@ -51,7 +51,7 @@ const Navbar = () => {
         Оформить подписку
       </Link>
 
-      <Link className="auth-btn" to="/auth">
+      <Link className="auth-btn" to="/register">
         Зарегестрироваться
       </Link>
 
