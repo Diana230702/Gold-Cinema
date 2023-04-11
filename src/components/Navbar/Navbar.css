@@ -1,4 +1,4 @@
-.navbar{
+.main-nav{
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -9,3 +9,31 @@
 .logo{
     width: 75px;
 }
+.auth-btn{
+    list-style-type: none;
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    padding: 5px;
+    border-radius: 5px;
+    border: 2px solid black;
+    background-color: transparent;
+    font-weight: 500;
+}
+.formOrder-btn{
+    list-style-type: none;
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    font-weight: 500;
+    background-color: transparent;
+}
+.productList-nav-link{
+    color: white;
+    list-style-type: none;
+    text-decoration: none;
+  }
+  .admin-nav-link{
+    color: white;
+    list-style-type: none;
+    text-decoration: none;
+
+    }

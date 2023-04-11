@@ -1,0 +1,20 @@
+.productCard_img {
+  width: 260px;
+  height: 170px;
+  /* justify-content: center; */
+}
+
+.vvv {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  background-color: black;
+  color: azure;
+}
+.productCard_card {
+  margin: 10px;
+}
+
+.productCard_p {
+  line-height: 4px;
+}
