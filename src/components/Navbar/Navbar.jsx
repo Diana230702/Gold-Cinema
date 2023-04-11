@@ -1,10 +1,15 @@
 import React from "react";
 import "../Navbar/Navbar.css";
 import { Link, useNavigate } from "react-router-dom";
+import logo from "./NavbarImages/LogoNameWhite (1).png";
 
 // ! links----------------------------------------------------------
 const pages = [
-  { name: "LOGO", link: "/", id: 1 },
+  {
+    name: <img className="logo" src={logo} alt="" />,
+    link: "/",
+    id: 1,
+  },
   { name: "AdminPage", link: "/admin", id: 2 },
   { name: "ProductList", link: "/productList", id: 3 },
 ];
