@@ -1,0 +1,15 @@
+.adminPage_wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.adminPage_inputs {
+  width: 40%;
+  height: 25px;
+  margin-bottom: 1%;
+}
+
+.adminPage_h2 {
+  font-size: 2rem;
+}
