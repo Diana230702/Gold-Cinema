@@ -19,6 +19,8 @@ const pages = [
   },
   { name: "Выбрать фильм ", link: "/productList", id: 2 },
   { name: "AdminPage", link: "/admin", id: 3 },
+  // { name: "Оформить подписку", link: "/formOrder", id: 4 },
+  // { name: "Зарегестрироваться", link: "/auth", id: 5 },
 ];
 // ! links----------------------------------------------------------
 
@@ -35,6 +37,13 @@ const Navbar = () => {
           {page.name}
         </Link>
       ))}
+      <Link className="formOrder-btn" to="/formOrder">
+        Оформить подписку
+      </Link>
+
+      <Link className="auth-btn" to="/auth">
+        Зарегестрироваться
+      </Link>
     </div>
   );
 };
