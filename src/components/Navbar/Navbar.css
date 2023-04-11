@@ -1,4 +1,15 @@
 .navbar{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
     width: 100%;
     height: 50px;
+    background-color: black;
+}
+.logo{
+    width: 75px;
+}
+Link{
+    list-style-type: none;
+    text-decoration: none;
 }
