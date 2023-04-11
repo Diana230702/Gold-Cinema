@@ -9,3 +9,7 @@
 .logo{
     width: 75px;
 }
+Link{
+    list-style-type: none;
+    text-decoration: none;
+}
