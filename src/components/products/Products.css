@@ -1,6 +1,7 @@
 .productCard_img {
-  width: 260px;
-  height: 170px;
+  width:220px;
+  height: 200px;
+  border-radius: 5px;
   /* justify-content: center; */
 }
 
@@ -9,9 +10,22 @@
   flex-wrap: wrap;
   justify-content: space-around;
   background-color: black;
-  color: azure;
+  color: rgb(255, 255, 255);
+  font-family: sans-serif;
+  
+}
+.film-list{
+  width: 80%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 .productCard_card {
+  width: 220px;
+  height: 330px;
+  background: rgb(29, 29, 29);
+  padding: .4em;
+  border-radius: 6px;
   margin: 10px;
 }
 

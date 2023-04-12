@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar/Navbar";
 import MainRoutes from "./Routes/MainRoutes";
 import AuthContex from "./contexts/AuthContexProvaider";
 import AuthContexProvaider from "./contexts/AuthContexProvaider";
+import Footer from "./components/Footer/Footer";
 
 const App = () => {
   return (
@@ -10,6 +11,7 @@ const App = () => {
       <AuthContexProvaider>
         <Navbar />
         <MainRoutes />
+        <Footer />
       </AuthContexProvaider>
     </div>
   );
