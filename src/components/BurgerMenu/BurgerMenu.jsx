@@ -33,7 +33,7 @@ export default function BasicMenu() {
   };
 
   const AuthPage = (e) => {
-    navigate("/auth");
+    navigate("/register");
     setAnchorEl(null);
   };
 
