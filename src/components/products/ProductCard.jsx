@@ -9,6 +9,7 @@ const ProductCard = ({ item }) => {
       <div className="productCard_card">
         <img className="productCard_img" src={item.image} alt="" />
         <p className="productCard_p">{item.title}</p>
+        <p>{item.year}</p>
         <p className="productCard_p">{item.price}</p>
 
         <button className="edit-btn">Edit</button>

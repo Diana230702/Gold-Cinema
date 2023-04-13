@@ -9,6 +9,46 @@
       "country": "FGHLO;P",
       "director": "VBNL",
       "id": 16
+    },
+    {
+      "title": "marvel",
+      "description": "ahn",
+      "category": "fantastic",
+      "image": "https://thumbs.dfs.ivi.ru/storage3/contents/2/4/c5a78e1eda20cdf06a5d13dad7f5e5.jpg",
+      "year": 2005,
+      "country": "kg",
+      "director": "fgh",
+      "id": 17
+    },
+    {
+      "title": "spider-man",
+      "description": "ghj",
+      "category": "marvel",
+      "image": "https://image.api.playstation.com/vulcan/img/rnd/202011/0714/vuF88yWPSnDfmFJVTyNJpVwW.png",
+      "year": 1998,
+      "country": "kg",
+      "director": "fghjk",
+      "id": 18
+    },
+    {
+      "title": "avengers",
+      "description": "fghj",
+      "category": "hjkl",
+      "image": "https://image.api.playstation.com/vulcan/img/rnd/202111/1814/roCJlsogn0SnuFWIOAtGna5j.jpg",
+      "year": 1996,
+      "country": "eng",
+      "director": "fghj",
+      "id": 19
+    },
+    {
+      "title": "человек муравей",
+      "description": "fghj",
+      "category": "hjkl",
+      "image": "https://avatars.mds.yandex.net/get-kinopoisk-image/6201401/77364593-3838-4dc2-844a-221e2d393625/1920x",
+      "year": 2010,
+      "country": "en",
+      "director": "dudud",
+      "id": 20
     }
   ]
 }

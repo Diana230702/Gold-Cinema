@@ -1,6 +1,8 @@
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+
 import React, { createContext, useContext, useReducer, useState } from "react";
-const API = " http://localhost:8000/products";
+const API = " http:/35.198.103.37";
 
 export const productContext = createContext();
 export const useProducts = () => useContext(productContext);
@@ -12,22 +14,15 @@ const INIT_STATE = {
 function reducer(state = INIT_STATE, action) {
   switch (action.type) {
     case "GET_PRODUCTS":
-      return { ...state, products: action.payload };
+      return { ...state, products: action.payload.results };
 
     default:
       return state;
   }
 }
 const ProductContextProvider = ({ children }) => {
-  const [product, setProduct] = useState({
-    title: "",
-    description: "",
-    category: "",
-    image: "",
-    year: "",
-    country: "",
-    director: "",
-  });
+  const navigate = useNavigate();
+  const [state, dispatch] = useReducer(reducer, INIT_STATE);
 
   function moreRepeatFunction() {
     const tokens = JSON.parse(localStorage.getItem("tokens"));
@@ -42,8 +37,10 @@ const ProductContextProvider = ({ children }) => {
   }
   // ! get request //
 
-  const [state, dispatch] = useReducer(reducer, INIT_STATE);
   const getProducts = async () => {
+    try {
+      moreRepeatFunction();
+    } catch (error) {}
     const { data } = await axios.get(`${API}`);
     dispatch({ type: "GET_PRODUCTS", payload: data });
   };
@@ -70,11 +67,15 @@ const ProductContextProvider = ({ children }) => {
   const values = {
     getProducts,
     addProduct,
-    product,
-    products: state.products,
-    setProduct,
     deleteProduct,
   };
+
+  // !edit //
+  async function saveEditProduct(id) {
+    await axios.patch(`${API}/${id}`);
+    getProducts();
+  }
+  // !edit //
 
   return (
     <productContext.Provider value={values}>{children}</productContext.Provider>
