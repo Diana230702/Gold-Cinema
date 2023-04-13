@@ -5,7 +5,9 @@ import NotFoundPage from "../pages/NotFoundPage/NotFoundPage";
 import ProductList from "../components/products/ProductList";
 import { Route, Routes } from "react-router-dom";
 import FormOrder from "../components/FormOrder/FormOrder";
+
 import AuthPage from "../pages/AuthPage/AuthPage";
+import CartPage from "../pages/CartPage/CartPage";
 
 const MainRoutes = () => {
   const PUBLIC_ROUTES = [
@@ -15,6 +17,7 @@ const MainRoutes = () => {
     { link: "/productList", element: <ProductList />, id: 4 },
     { link: "/formOrder", element: <FormOrder />, id: 5 },
     { link: "/auth", element: <AuthPage />, id: 7 },
+    { link: "/cart", element: <CartPage />, id: 8 },
   ];
   return (
     <div>

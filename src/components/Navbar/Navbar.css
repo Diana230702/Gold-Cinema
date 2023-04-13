@@ -1,39 +1,39 @@
-.main-nav{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 100%;
-    height: 50px;
-    background-color: rgb(0, 0, 0);
+.main-nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: 80px;
+  background-color: rgb(0, 0, 0);
+  font-size: 17px;
 }
-.logo{
-    width: 75px;
+.logo {
+  width: 75px;
 }
-.auth-btn{
-    list-style-type: none;
-    text-decoration: none;
-    color: rgb(255, 255, 255);
-    padding: 5px;
-    border-radius: 5px;
-    border: 2px solid rgb(255, 255, 255);
-    background-color: transparent;
-    font-weight: 500;
+.auth-btn {
+  list-style-type: none;
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  padding: 5px;
+  border-radius: 5px;
+  border: 2px solid rgb(255, 255, 255);
+  background-color: transparent;
+  font-weight: 500;
 }
-.formOrder-btn{
-    list-style-type: none;
-    text-decoration: none;
-    color: rgb(255, 255, 255);
-    font-weight: 500;
-    background-color: transparent;
+.formOrder-btn {
+  list-style-type: none;
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  font-weight: 500;
+  background-color: transparent;
 }
-.productList-nav-link{
-    color: white;
-    list-style-type: none;
-    text-decoration: none;
-  }
-  .admin-nav-link{
-    color: white;
-    list-style-type: none;
-    text-decoration: none;
-
-    }
+.productList-nav-link {
+  color: white;
+  list-style-type: none;
+  text-decoration: none;
+}
+.admin-nav-link {
+  color: white;
+  list-style-type: none;
+  text-decoration: none;
+}

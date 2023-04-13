@@ -1,34 +1,56 @@
 .productCard_img {
-  width:220px;
+  width: 220px;
   height: 200px;
   border-radius: 5px;
   /* justify-content: center; */
 }
 
-.vvv {
+.productList-films {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
+flex-wrap: wrap;
   background-color: black;
   color: rgb(255, 255, 255);
   font-family: sans-serif;
+ /* padding-left: 10%; */
+ justify-content: center;
+ gap: 30px;
   
-}
-.film-list{
-  width: 80%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
 }
 .productCard_card {
   width: 220px;
   height: 330px;
   background: rgb(29, 29, 29);
-  padding: .4em;
+  padding: 0.4em;
   border-radius: 6px;
-  margin: 10px;
+  margin: 20px;
 }
 
-.productCard_p {
+
+ .productCard_card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0px 0px 20px 2px #ffffff4e;
+  transition: 0.3s;
+} 
+
+ .productCard_p {
   line-height: 4px;
 }
+
+.edit-btn {
+  height: 25px;
+  width: 20%;
+  margin: 0px 10px 0px 0px;
+  border-radius: 5px;
+  background-color: transparent;
+  border: 2px solid rgb(141, 141, 141);
+  color: white;
+}
+.delete-btn {
+  height: 25px;
+  width: 25%;
+  margin: 0px 10px 0px 0px;
+  border-radius: 5px;
+  background-color: transparent;
+  border: 2px solid rgb(141, 141, 141);
+  color: white;
+} 

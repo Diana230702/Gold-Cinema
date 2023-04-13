@@ -1,11 +1,14 @@
-import React from "react";
 import "../Navbar/Navbar.css";
 import "../Navbar/NavbarAdaptive.css";
 import { Link, useNavigate } from "react-router-dom";
 import logo from "./NavbarImages/LogoNameWhite (1).png";
 import BurgerMenu from "../BurgerMenu/BurgerMenu";
+
 import { useAuth } from "../../contexts/auth/AuthProvider";
 import { Button } from "@mui/material";
+
+import {TurnedIn} from "@mui/icons-material";
+import { IconButton } from "@mui/material";
 
 const LinkStyle = {
   listStyleType: "none",
@@ -24,8 +27,11 @@ const pages = [
 // ! links----------------------------------------------------------
 
 const Navbar = () => {
+
   const { isAuth, logOut } = useAuth();
 
+
+  const navigate = useNavigate();
   return (
     <div className="main-nav">
       {pages.map((page) => (
@@ -47,6 +53,10 @@ const Navbar = () => {
         Админ
       </Link>
 
+      <IconButton onClick={() => navigate("/cart")}>
+        <TurnedIn sx={{ color: "white" }} />
+      </IconButton>
+
       <Link className="formOrder-btn" to="/formOrder">
         Оформить подписку
       </Link>
@@ -55,7 +65,7 @@ const Navbar = () => {
         <Button onClick={logOut}>Выйти</Button>
       ) : (
         <Link className="auth-btn" to="/auth">
-          Зарегестрироваться
+          Зарегистрироваться
         </Link>
       )}
 
