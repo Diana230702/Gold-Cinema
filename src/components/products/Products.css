@@ -10,6 +10,7 @@
   justify-content: space-around;
   background-color: black;
   color: azure;
+  border: 2px solid black;
 }
 .productCard_card {
   margin: 10px;
