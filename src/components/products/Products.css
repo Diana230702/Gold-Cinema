@@ -1,21 +1,38 @@
 .productCard_img {
-  width: 260px;
-  height: 170px;
+  width: 220px;
+  height: 200px;
+  border-radius: 5px;
   /* justify-content: center; */
 }
 
 .vvv {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: center;
   background-color: black;
-  color: azure;
   border: 2px solid black;
+  color: rgb(255, 255, 255);
+  font-family: sans-serif;
+}
+.film-list {
+  width: 80%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 .productCard_card {
+  width: 220px;
+  height: 330px;
+  background: rgb(29, 29, 29);
+  padding: 0.4em;
+  border-radius: 6px;
   margin: 10px;
 }
 
 .productCard_p {
   line-height: 4px;
+}
+
+.adminPage_inputs {
+  width: 50%;
 }

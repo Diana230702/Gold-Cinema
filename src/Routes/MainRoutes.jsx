@@ -6,6 +6,7 @@ import ProductList from "../components/products/ProductList";
 import { Route, Routes } from "react-router-dom";
 import FormOrder from "../components/FormOrder/FormOrder";
 import Auth from "../components/Auth/Auth";
+import Register from "../components/Auth/Register/Register";
 
 const MainRoutes = () => {
   const PUBLIC_ROUTES = [
@@ -14,7 +15,7 @@ const MainRoutes = () => {
     { link: "/admin", element: <AdminPage />, id: 3 },
     { link: "/productList", element: <ProductList />, id: 4 },
     { link: "/formOrder", element: <FormOrder />, id: 5 },
-    { link: "/auth", element: <Auth />, id: 6 },
+    { link: "/register", element: <Register />, id: 7 },
   ];
   return (
     <div>
