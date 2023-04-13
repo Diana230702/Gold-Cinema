@@ -1,4 +1,3 @@
-import React from "react";
 import "../Navbar/Navbar.css";
 import "../Navbar/NavbarAdaptive.css";
 import { Link, useNavigate } from "react-router-dom";

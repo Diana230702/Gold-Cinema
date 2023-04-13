@@ -1,11 +1,7 @@
 import { useNavigate } from "react-router-dom";
-import ProductContextProvider, {
-  useProducts,
-} from "../../contexts/ProductContextProvider";
-import { useContext } from "react";
+import { useProducts } from "../../contexts/ProductContextProvider";
 
 const AddProduct = () => {
-  const { useProducts } = useContext(ProductContextProvider);
   const { addProduct, product, setProduct } = useProducts();
   const navigate = useNavigate();
 
@@ -18,7 +14,6 @@ const AddProduct = () => {
       setProduct(obj);
     }
   }
-
   return (
     <div>
       <div className="adminPage_wrapper">

@@ -74,7 +74,6 @@ const ProductContextProvider = ({ children }) => {
     products: state.products,
     setProduct,
     deleteProduct,
-    useProducts,
   };
 
   return (

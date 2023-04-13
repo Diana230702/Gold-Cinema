@@ -1,5 +1,254 @@
 {
- "products":[
-  
- ]
+  "products": [
+    {
+      "title": "vhj",
+      "description": "vhj",
+      "category": "vbnm",
+      "image": "",
+      "year": 5678,
+      "country": "",
+      "director": "ghjkl;",
+      "id": 1
+    },
+    {
+      "title": "marvel",
+      "description": "ahn",
+      "category": "fantastic",
+      "image": "",
+      "year": 2005,
+      "country": "",
+      "director": "hz",
+      "id": 2
+    },
+    {
+      "title": "Tor",
+      "description": "ahn",
+      "category": "marvel",
+      "image": "",
+      "year": 2002,
+      "country": "",
+      "director": "hz",
+      "id": 3
+    },
+    {
+      "title": "tor",
+      "description": "ahn",
+      "category": "dfgh",
+      "image": "",
+      "year": 45678,
+      "country": "",
+      "director": "sdfghj",
+      "": "https://avatars.mds.yandex.net/get-kinopoisk-image/4303601/8674c9c7-6ec6-4c90-8642-7b0741d87dac/300x450",
+      "id": 4
+    },
+    {
+      "title": "",
+      "description": "fgh",
+      "category": "hj",
+      "image": "",
+      "year": "",
+      "country": "",
+      "director": "",
+      "id": 5
+    },
+    {
+      "title": "ggg",
+      "description": "g",
+      "category": "g",
+      "image": "",
+      "year": "",
+      "country": "",
+      "director": "ghjk",
+      "": "https://avatars.mds.yandex.net/get-kinopoisk-image/4303601/8674c9c7-6ec6-4c90-8642-7b0741d87dac/300x450",
+      "id": 6
+    },
+    {
+      "title": "a",
+      "description": "b",
+      "category": "d",
+      "image": "",
+      "year": "",
+      "country": "",
+      "director": "f",
+      "": "j",
+      "id": 7
+    },
+    {
+      "title": "a",
+      "description": "b",
+      "category": "c",
+      "image": "",
+      "year": 2,
+      "country": "d",
+      "director": "e",
+      "": "f",
+      "id": 8
+    },
+    {
+      "title": "a",
+      "description": "b",
+      "category": "c",
+      "image": "",
+      "year": 2,
+      "country": "d",
+      "director": "e",
+      "": "f",
+      "id": 9
+    },
+    {
+      "title": "a",
+      "description": "b",
+      "category": "c",
+      "image": "",
+      "year": 0,
+      "country": "f",
+      "director": "j",
+      "": "f",
+      "id": 10
+    },
+    {
+      "title": "f",
+      "description": "f",
+      "category": "f",
+      "image": "",
+      "year": 0,
+      "country": "g",
+      "director": "g",
+      "": "f",
+      "id": 11
+    },
+    {
+      "title": "dfghjk",
+      "description": "f",
+      "category": "f",
+      "image": "",
+      "year": 0,
+      "country": "g",
+      "director": "g",
+      "": "f",
+      "id": 12
+    },
+    {
+      "title": "sdcsd",
+      "description": "f",
+      "category": "f",
+      "image": "",
+      "year": 0,
+      "country": "g",
+      "director": "g",
+      "": "f",
+      "id": 13
+    },
+    {
+      "title": "fghjkFGH",
+      "description": "FGHJKL;",
+      "category": "FGHJKL;",
+      "image": "  https://cdnn21.img.ria.ru/images/07e4/0b/17/1585982208_209:0:1141:932_1920x0_80_0_0_0864085575c3f7e62a28af4453c1dff0.jpg",
+      "year": 234564,
+      "country": "dfgjkl",
+      "director": "HYJUL;'",
+      "": "f",
+      "id": 14
+    },
+    {
+      "title": "gg",
+      "description": "g",
+      "category": "g",
+      "image": "g",
+      "year": 4567,
+      "country": "fghjkl",
+      "director": "vbmj,k",
+      "id": 15
+    },
+    {
+      "title": "fghjk",
+      "description": "ghjkl;",
+      "category": "ghjkl;",
+      "image": "https://wikicomics.ru/uploads/posts/2020-08/1597059091_tor-thor-moguchiy-tor.jpg",
+      "year": 54678,
+      "country": "FGHLO;P",
+      "director": "VBNL",
+      "id": 16
+    },
+    {
+      "title": "fh",
+      "description": "gh",
+      "category": "ghj",
+      "image": "ghj",
+      "year": 456789,
+      "country": "ghj",
+      "director": "ghj",
+      "id": 17
+    },
+    {
+      "title": "gnh",
+      "description": "hjk",
+      "category": "hjkl",
+      "image": "hjkl",
+      "year": 567890,
+      "country": "fghjkl;'",
+      "director": "ghjk",
+      "id": 18
+    },
+    {
+      "title": "",
+      "description": "",
+      "category": "",
+      "image": "",
+      "year": "",
+      "country": "",
+      "director": "",
+      "id": 19
+    },
+    {
+      "title": "fghj",
+      "description": "ghj",
+      "category": "ghjk",
+      "image": "hjk",
+      "year": -2,
+      "country": "ghj",
+      "director": "ghjk",
+      "id": 20
+    },
+    {
+      "title": "",
+      "description": "",
+      "category": "",
+      "image": "",
+      "year": "",
+      "country": "",
+      "director": "",
+      "id": 21
+    },
+    {
+      "title": "",
+      "description": "",
+      "category": "",
+      "image": "",
+      "year": "",
+      "country": "",
+      "director": "",
+      "id": 22
+    },
+    {
+      "title": "",
+      "description": "",
+      "category": "",
+      "image": "",
+      "year": "",
+      "country": "",
+      "director": "",
+      "id": 23
+    },
+    {
+      "title": "",
+      "description": "",
+      "category": "",
+      "image": "",
+      "year": "",
+      "country": "",
+      "director": "",
+      "id": 24
+    }
+  ]
 }
