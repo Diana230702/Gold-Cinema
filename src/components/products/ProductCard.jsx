@@ -1,7 +1,9 @@
 import React from "react";
+import { useProducts } from "../../contexts/ProductContextProvider";
 import "../products/Products.css";
 
 const ProductCard = ({ item }) => {
+  const { deleteProduct } = useProducts();
   return (
     <div className="vvv">
       <div className="productCard_card">
@@ -10,7 +12,9 @@ const ProductCard = ({ item }) => {
         <p className="productCard_p">{item.price}</p>
 
         <button className="edit-btn">Edit</button>
-        <button className="delete-btn">Delete </button>
+        <button className="delete-btn" onClick={() => deleteProduct(item.id)}>
+          Delete{" "}
+        </button>
       </div>
     </div>
   );
