@@ -1,5 +1,6 @@
 import React from "react";
 import Navbar from "./components/Navbar/Navbar";
+import ProductContextProvider from "./contexts/ProductContextProvider";
 import MainRoutes from "./Routes/MainRoutes";
 import AuthContex from "./contexts/AuthContexProvaider";
 import AuthContexProvaider from "./contexts/AuthContexProvaider";
@@ -9,9 +10,11 @@ const App = () => {
   return (
     <div>
       <AuthContexProvaider>
-        <Navbar />
-        <MainRoutes />
-        <Footer />
+        <ProductContextProvider>
+          <Navbar />
+          <MainRoutes />
+          <Footer />
+        </ProductContextProvider>
       </AuthContexProvaider>
     </div>
   );
