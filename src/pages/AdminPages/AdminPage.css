@@ -1,23 +1,28 @@
 .adminPage_wrapper {
   display: flex;
-  height: 700px;
+  height: 800px;
   flex-direction: column;
   align-items: center;
-  border: 2px solid black;
   background-image: url(https://plus.unsplash.com/premium_photo-1675237624880-da169dd82f68?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80);
   background-size: cover;
 }
 
 .adminPage_inputs {
-  width: 90%;
-  height: 25px;
+  width: 80%;
+  height: 35px;
   border-radius: 5px;
   margin-bottom: 2%;
-  background-color: transparent;
   color: white;
+  background-color: transparent;
+}
+.adminPage_inputs::placeholder {
+
+  color: white;
+ 
 }
 
-.admin-content {
+
+.admin-content{
   width: 30%;
   display: flex;
   flex-direction: column;
@@ -29,24 +34,25 @@
   border-radius: 10px;
 }
 
+
 .adminPage_h2 {
   font-size: 2rem;
   color: white;
 }
 
-.crud-btn-add {
+.crud-btn-add{
   height: 30px;
   border-radius: 5px;
   text-decoration: none;
   font-family: sans-serif;
-  font-weight: 600;
+  font-weight: 500;
 }
-@media all and (max-width: 769px) {
+@media all and (max-width: 769px){
   .adminPage_h2 {
     font-size: 30px;
     color: white;
   }
-  .admin-content {
+  .admin-content{
     width: 50%;
     display: flex;
     flex-direction: column;
@@ -58,12 +64,12 @@
     border-radius: 10px;
   }
 }
-@media all and (max-width: 421px) {
+@media all and (max-width: 421px){
   .adminPage_h2 {
     font-size: 20px;
     color: white;
   }
-  .admin-content {
+  .admin-content{
     width: 70%;
     display: flex;
     flex-direction: column;
