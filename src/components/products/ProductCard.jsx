@@ -53,6 +53,9 @@ const ProductCard = () => {
             <img className="productCard_img" src={item.img} alt="" />
             <p className="productCard_p">{item.name}</p>
             <p className="productCard_p">{item.price}</p>
+
+            <button className="edit-btn">Edit</button>
+            <button className="delete-btn">Delete</button>
           </div>
         ))}
       </div>
