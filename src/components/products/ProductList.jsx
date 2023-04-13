@@ -12,7 +12,7 @@ const ProductList = () => {
 
   return (
     <div className="productList_wrapper">
-      <div>
+      <div className="productList-films">
         {products.map((item) => (
           <ProductCard key={item.id} item={item} />
         ))}

@@ -17,67 +17,70 @@ const AddProduct = () => {
   return (
     <div>
       <div className="adminPage_wrapper">
-        <h2 className="adminPage_h2">Admin Page</h2>
-        <input
-          className="adminPage_inputs"
-          type="text"
-          placeholder="title"
-          name="title"
-          onChange={handleInput}
-        />
-        <input
-          className="adminPage_inputs"
-          type="text"
-          placeholder="description"
-          name="description"
-          onChange={handleInput}
-        />
-        <input
-          className="adminPage_inputs"
-          type="text"
-          placeholder="category"
-          name="category"
-          onChange={handleInput}
-        />
-        <input
-          className="adminPage_inputs"
-          name="image"
-          type="text"
-          placeholder="image"
-          onChange={handleInput}
-        />
-        <input
-          className="adminPage_inputs"
-          type="number"
-          placeholder="year"
-          name="year"
-          onChange={handleInput}
-        />
-        <input
-          className="adminPage_inputs"
-          type="text"
-          placeholder="country"
-          name="country"
-          onChange={handleInput}
-        />
-        <input
-          className="adminPage_inputs"
-          type="text"
-          placeholder="director"
-          name="director"
-          onChange={handleInput}
-        />
-        {/* <input type="file" accept="image/*" placeholder="image" /> */}
-        {/* <input type="text" placeholder="image" onChange={handleInput} /> */}
+        <div className="admin-content">
+          <h2 className="adminPage_h2">Admin Page</h2>
+          <input
+            className="adminPage_inputs"
+            type="text"
+            placeholder="Title"
+            name="title"
+            onChange={handleInput}
+          />
+          <input
+            className="adminPage_inputs"
+            type="text"
+            placeholder="Description"
+            name="description"
+            onChange={handleInput}
+          />
+          <input
+            className="adminPage_inputs"
+            type="text"
+            placeholder="Category"
+            name="category"
+            onChange={handleInput}
+          />
+          <input
+            className="adminPage_inputs"
+            name="image"
+            type="text"
+            placeholder="Image"
+            onChange={handleInput}
+          />
+          <input
+            className="adminPage_inputs"
+            type="number"
+            placeholder="Year"
+            name="year"
+            onChange={handleInput}
+          />
+          <input
+            className="adminPage_inputs"
+            type="text"
+            placeholder="Country"
+            name="country"
+            onChange={handleInput}
+          />
+          <input
+            className="adminPage_inputs"
+            type="text"
+            placeholder="Director"
+            name="director"
+            onChange={handleInput}
+          />
+          {/* <input type="file" accept="image/*" placeholder="image" /> */}
+          {/* <input type="text" placeholder="image" onChange={handleInput} /> */}
 
-        <button
-          onClick={() => {
-            addProduct(product);
-            navigate("/productList");
-          }}
-        >
-          add movie
-        </button>
+          <button
+            className="crud-btn-add"
+            onClick={() => {
+              addProduct(product);
+              navigate("/productList");
+            }}
+          >
+            Add movie
+          </button>
+        </div>
       </div>
     </div>
   );
