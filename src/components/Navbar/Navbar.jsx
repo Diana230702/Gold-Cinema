@@ -4,6 +4,8 @@ import "../Navbar/NavbarAdaptive.css";
 import { Link, useNavigate } from "react-router-dom";
 import logo from "./NavbarImages/LogoNameWhite (1).png";
 import BurgerMenu from "../BurgerMenu/BurgerMenu";
+import { useAuth } from "../../contexts/auth/AuthProvider";
+import { Button } from "@mui/material";
 
 const LinkStyle = {
   listStyleType: "none",
@@ -22,6 +24,8 @@ const pages = [
 // ! links----------------------------------------------------------
 
 const Navbar = () => {
+  const { isAuth, logOut } = useAuth();
+
   return (
     <div className="main-nav">
       {pages.map((page) => (
@@ -47,9 +51,13 @@ const Navbar = () => {
         Оформить подписку
       </Link>
 
-      <Link className="auth-btn" to="/register">
-        Зарегестрироваться
-      </Link>
+      {isAuth ? (
+        <Button onClick={logOut}>Выйти</Button>
+      ) : (
+        <Link className="auth-btn" to="/auth">
+          Зарегестрироваться
+        </Link>
+      )}
 
       <div id="burger-menu">
         <div id="wrapper">
