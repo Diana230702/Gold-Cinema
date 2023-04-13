@@ -3,7 +3,11 @@ import "../Navbar/NavbarAdaptive.css";
 import { Link, useNavigate } from "react-router-dom";
 import logo from "./NavbarImages/LogoNameWhite (1).png";
 import BurgerMenu from "../BurgerMenu/BurgerMenu";
-import TurnedInIcon from "@mui/icons-material/TurnedIn";
+
+import { useAuth } from "../../contexts/auth/AuthProvider";
+import { Button } from "@mui/material";
+
+import {TurnedIn} from "@mui/icons-material";
 import { IconButton } from "@mui/material";
 
 const LinkStyle = {
@@ -23,6 +27,10 @@ const pages = [
 // ! links----------------------------------------------------------
 
 const Navbar = () => {
+
+  const { isAuth, logOut } = useAuth();
+
+
   const navigate = useNavigate();
   return (
     <div className="main-nav">
@@ -46,16 +54,20 @@ const Navbar = () => {
       </Link>
 
       <IconButton onClick={() => navigate("/cart")}>
-        <TurnedInIcon sx={{ color: "white" }} />
+        <TurnedIn sx={{ color: "white" }} />
       </IconButton>
 
       <Link className="formOrder-btn" to="/formOrder">
         Оформить подписку
       </Link>
 
-      <Link className="auth-btn" to="/register">
-        Зарегестрироваться
-      </Link>
+      {isAuth ? (
+        <Button onClick={logOut}>Выйти</Button>
+      ) : (
+        <Link className="auth-btn" to="/auth">
+          Зарегистрироваться
+        </Link>
+      )}
 
       <div id="burger-menu">
         <div id="wrapper">
