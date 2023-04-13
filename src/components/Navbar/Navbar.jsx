@@ -1,4 +1,3 @@
-import React from "react";
 import "../Navbar/Navbar.css";
 import "../Navbar/NavbarAdaptive.css";
 import { Link, useNavigate } from "react-router-dom";
@@ -38,7 +37,7 @@ const Navbar = () => {
         </Link>
       ))}
 
-      <Link className="productList-nav-link" to="/productList">
+      <Link className="productList-nav-link" to="/products">
         Выбрать фильм
       </Link>
 
