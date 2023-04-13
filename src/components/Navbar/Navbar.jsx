@@ -4,6 +4,8 @@ import "../Navbar/NavbarAdaptive.css";
 import { Link, useNavigate } from "react-router-dom";
 import logo from "./NavbarImages/LogoNameWhite (1).png";
 import BurgerMenu from "../BurgerMenu/BurgerMenu";
+import TurnedInIcon from "@mui/icons-material/TurnedIn";
+import { IconButton } from "@mui/material";
 
 const LinkStyle = {
   listStyleType: "none",
@@ -22,6 +24,7 @@ const pages = [
 // ! links----------------------------------------------------------
 
 const Navbar = () => {
+  const navigate = useNavigate();
   return (
     <div className="main-nav">
       {pages.map((page) => (
@@ -42,6 +45,10 @@ const Navbar = () => {
       <Link className="admin-nav-link" to="/admin">
         Админ
       </Link>
+
+      <IconButton onClick={() => navigate("/cart")}>
+        <TurnedInIcon sx={{ color: "white" }} />
+      </IconButton>
 
       <Link className="formOrder-btn" to="/formOrder">
         Оформить подписку
