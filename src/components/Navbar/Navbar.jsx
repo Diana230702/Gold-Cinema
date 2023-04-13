@@ -37,7 +37,7 @@ const Navbar = () => {
         </Link>
       ))}
 
-      <Link className="productList-nav-link" to="/productList">
+      <Link className="productList-nav-link" to="/products">
         Выбрать фильм
       </Link>
 
