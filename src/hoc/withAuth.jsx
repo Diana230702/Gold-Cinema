@@ -11,6 +11,7 @@ const withAuth = (WrappedComponent) => {
     useEffect(() => {
       const intervalId = setInterval(() => {
         const token = localStorage.getItem('token')
+        if(!token) return
         const exp = jwt_decode(token).exp;
 
         const expTime = exp * 1000;
@@ -22,7 +23,7 @@ const withAuth = (WrappedComponent) => {
           logOut();
           navigate("/auth");
         }
-      }, 1000 * 60 * 0.5); 
+      }, 1000 * 60 * 0.1); 
 
       return () => clearInterval(intervalId);
     }, [refreshToken, logOut, navigate]);
