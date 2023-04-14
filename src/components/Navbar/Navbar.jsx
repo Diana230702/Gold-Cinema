@@ -7,9 +7,8 @@ import BurgerMenu from "../BurgerMenu/BurgerMenu";
 import { useAuth } from "../../contexts/auth/AuthProvider";
 import { Button } from "@mui/material";
 
-import {TurnedIn} from "@mui/icons-material";
+import { TurnedIn } from "@mui/icons-material";
 import { IconButton } from "@mui/material";
-
 const LinkStyle = {
   listStyleType: "none",
   textDecoration: "none",
@@ -27,9 +26,7 @@ const pages = [
 // ! links----------------------------------------------------------
 
 const Navbar = () => {
-
   const { isAuth, logOut } = useAuth();
-
 
   const navigate = useNavigate();
   return (
@@ -58,7 +55,7 @@ const Navbar = () => {
       </IconButton>
 
       <Link className="formOrder-btn" to="/formOrder">
-        Оформить подписку
+        Поддержать
       </Link>
 
       {isAuth ? (
@@ -68,7 +65,6 @@ const Navbar = () => {
           Зарегистрироваться
         </Link>
       )}
-
       <div id="burger-menu">
         <div id="wrapper">
           <BurgerMenu />
