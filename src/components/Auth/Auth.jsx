@@ -29,9 +29,9 @@ export default function AuthForm() {
 
   const handleSave = (e) => {
     e.preventDefault();
-    const { email, password, passwordConfirm, hasAccount } = formState;
+    const { email, password, passwordConfirm, hasAccount, lastName, firstName } = formState;
 
-    if (!email || !password || (!hasAccount && !passwordConfirm)) {
+    if (!email || !password || (!hasAccount && (!passwordConfirm || !firstName || !lastName))) {
       alert("Заполните все поля!");
     } else {
       if (password !== passwordConfirm && !hasAccount) {
@@ -50,6 +50,8 @@ export default function AuthForm() {
         });
       } else {
         newUser.password_confirm = formState.passwordConfirm;
+        newUser.first_name = formState.firstName;
+        newUser.last_name = formState.lastName;
         registerRequest(newUser, () => {
           alert("Вы зарегистрировались, можете авторизоваться");
           handleHasAccount();
@@ -66,6 +68,8 @@ export default function AuthForm() {
       password: formState.password,
       passwordConfirm: formState.passwordConfirm,
       hasAccount: formState.hasAccount,
+      firstName: formState.firstName,
+      lastName: formState.lastName,
       handleChange,
     }),
     [
@@ -73,6 +77,8 @@ export default function AuthForm() {
       formState.password,
       formState.passwordConfirm,
       formState.hasAccount,
+      formState.firstName,
+      formState.lastName
     ]
   );
 

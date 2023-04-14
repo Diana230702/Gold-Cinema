@@ -14,6 +14,8 @@ export const getAuthInputs = (inputsHandler) => {
     email,
     password,
     passwordConfirm,
+    lastName,
+    firstName,
     handleChange,
     hasAccount
   } = inputsHandler;
@@ -48,6 +50,28 @@ export const getAuthInputs = (inputsHandler) => {
       name: 'passwordConfirm',
       label: "Подтвердите пароль",
       type: "password",
+      onChange: handleChange,
+    },
+    !hasAccount && {
+      value: firstName,
+      styles: inputStyles,
+      className: "register_input",
+      label: "Имя",
+      name: 'firstName',
+      type: "text",
+      variant: "outlined",
+      style: { color: "yellow" },
+      onChange: handleChange,
+    },
+    !hasAccount && {
+      value: lastName,
+      styles: inputStyles,
+      className: "register_input",
+      label: "Фамилия",
+      name: 'lastName',
+      type: "text",
+      variant: "outlined",
+      style: { color: "yellow" },
       onChange: handleChange,
     },
   ].filter(Boolean);
