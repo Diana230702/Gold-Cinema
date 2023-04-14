@@ -2,7 +2,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 import React, { createContext, useContext, useReducer, useState } from "react";
-const API = " http:/35.198.103.37";
+const API = " http://35.198.103.37";
 
 export const productContext = createContext();
 export const useProducts = () => useContext(productContext);
@@ -25,8 +25,8 @@ const ProductContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, INIT_STATE);
 
   function moreRepeatFunction() {
-    const tokens = JSON.parse(localStorage.getItem("tokens"));
-    const Authorization = `Bearer ${tokens.access}`;
+    const tokens = JSON.parse(localStorage.getItem("token"));
+    const Authorization = `Bearer ${tokens}`;
 
     const config = {
       headers: {
@@ -39,19 +39,39 @@ const ProductContextProvider = ({ children }) => {
 
   const getProducts = async () => {
     try {
-      moreRepeatFunction();
-    } catch (error) {}
-    const { data } = await axios.get(`${API}`);
-    dispatch({ type: "GET_PRODUCTS", payload: data });
+      const tokens = JSON.parse(localStorage.getItem("tokens"));
+      const Authorization = `Bearer ${tokens}`;
+
+      const config = {
+        headers: {
+          Authorization,
+        },
+      };
+      const res = await axios.get(`${API}/products/`, config);
+      dispatch({ type: "GET_PRODUCTS", payload: res.data });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   // ! get request //
 
   // ! create request //
-  const addProduct = async (product) => {
-    await axios.post(API, product);
-    getProducts();
-    console.log(product);
+  const createProduct = async (product) => {
+    try {
+      const tokens = JSON.parse(localStorage.getItem("tokens"));
+      const Authorization = `Bearer ${tokens}`;
+
+      const config = {
+        headers: {
+          Authorization,
+        },
+      };
+      await axios.post(`${API}/products/`, product, config);
+      navigate("productList");
+    } catch (error) {
+      console.log(error);
+    }
   };
   // ! create request //
 
@@ -64,18 +84,18 @@ const ProductContextProvider = ({ children }) => {
 
   // ! delete //
 
-  const values = {
-    getProducts,
-    addProduct,
-    deleteProduct,
-  };
-
   // !edit //
   async function saveEditProduct(id) {
     await axios.patch(`${API}/${id}`);
     getProducts();
   }
   // !edit //
+  const values = {
+    createProduct,
+    deleteProduct,
+    products: state.products,
+    getProducts,
+  };
 
   return (
     <productContext.Provider value={values}>{children}</productContext.Provider>
