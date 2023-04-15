@@ -44,7 +44,7 @@ const ProductContextProvider = ({ children }) => {
 
   const [state, dispatch] = useReducer(reducer, INIT_STATE);
   const getProducts = async () => {
-    const { data } = await axios.get(`${API}`);
+    const { data } = await axios.get(`${API}${window.location.search}`);
     dispatch({ type: "GET_PRODUCTS", payload: data });
   };
 
@@ -75,7 +75,7 @@ const ProductContextProvider = ({ children }) => {
     setProduct,
     deleteProduct,
   };
-
+  console.log(INIT_STATE.products);
   return (
     <productContext.Provider value={values}>{children}</productContext.Provider>
   );

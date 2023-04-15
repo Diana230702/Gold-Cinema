@@ -1,11 +1,30 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../SideBar.css";
-const Search = (search_start_form) => {
+import { useProducts } from "../../../contexts/ProductContextProvider";
+import { useSearchParams } from "react-router-dom";
+import SearchIcon from "@mui/icons-material/Search";
+const Search = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [search, setSearch] = useState(searchParams.get("q") || "");
+  const { getProducts } = useProducts();
+  useEffect(() => {
+    setSearchParams({ q: search });
+    getProducts();
+  }, [search]);
+
   return (
-    <div
-      className={search_start_form ? "search_input_true" : "search_input_false"}
-    >
-      <input type="text" placeholder="введите название фильма" />
+    <div>
+      <form className="search_form">
+        <input
+          type="text"
+          placeholder="Искать здесь..."
+          onChange={(e) => setSearch(e.target.value)}
+          className="search_inp"
+        />
+        <button className="search_btn">
+          <SearchIcon />
+        </button>
+      </form>
     </div>
   );
 };

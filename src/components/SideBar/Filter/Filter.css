@@ -1,0 +1,11 @@
+.filter__page {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: black;
+  color: rgb(255, 255, 255);
+  font-family: sans-serif;
+  /* padding-left: 10%; */
+  justify-content: center;
+  gap: 30px;
+}

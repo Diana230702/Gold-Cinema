@@ -1,16 +1,15 @@
 import React, { useState } from "react";
-import SearchIcon from "@mui/icons-material/Search";
-import { IconButton } from "@mui/material";
-import Search from "./Search/Search";
-const SideBar = () => {
-  const [search_start_form, setSearch_start_form] = useState(false);
 
+import Search from "./Search/Search";
+import { useProducts } from "../../contexts/ProductContextProvider";
+import Filter from "./Filter/Filter";
+const SideBar = ({ products }) => {
+  const {} = useProducts();
+  //   console.log(search_start_form);
   return (
-    <div>
-      <IconButton>
-        <SearchIcon onclick={() => setSearch_start_form(true)} />
-      </IconButton>
-      <Search search_start_form={search_start_form} />
+    <div className="side_bar_style">
+      <Search />
+      <Filter products={products} />
     </div>
   );
 };

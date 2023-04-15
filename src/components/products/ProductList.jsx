@@ -3,6 +3,7 @@ import ProductCard from "./ProductCard";
 import "../products/Products.css";
 import { useProducts } from "../../contexts/ProductContextProvider";
 import SideBar from "../SideBar/SideBar";
+import Filter from "../SideBar/Filter/Filter";
 
 const ProductList = () => {
   const { getProducts, products } = useProducts();
@@ -13,14 +14,15 @@ const ProductList = () => {
 
   return (
     <div className="productList_wrapper">
-      <SideBar />
       <div className="productList-films">
-        {products.map((item) => (
-          <ProductCard key={item.id} item={item} />
-        ))}
+        <SideBar products={products} />
       </div>
     </div>
   );
 };
 
 export default ProductList;
+
+// {products.map((item) => (
+// {/* <ProductCard key={item.id} item={item} /> */}
+// ))}
