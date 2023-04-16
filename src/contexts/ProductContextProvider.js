@@ -16,7 +16,7 @@ function reducer(state = INIT_STATE, action) {
   switch (action.type) {
     case "GET_PRODUCTS":
       return { ...state, products: action.payload.results };
-    case "GET_ONE_PRODUCTS":
+    case "GET_ONE_PRODUCT":
       return { ...state, oneProduct: action.payload };
 
     default:
