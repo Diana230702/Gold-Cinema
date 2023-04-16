@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "../SideBar.css";
+import "../Search.css";
 import { useProducts } from "../../../contexts/ProductContextProvider";
 import { useSearchParams } from "react-router-dom";
 import SearchIcon from "@mui/icons-material/Search";
@@ -13,19 +13,17 @@ const Search = () => {
   }, [search]);
 
   return (
-    <div>
-      <form className="search_form">
-        <input
-          type="text"
-          placeholder="Искать здесь..."
-          onChange={(e) => setSearch(e.target.value)}
-          className="search_inp"
-        />
-        <button className="search_btn">
-          <SearchIcon />
-        </button>
-      </form>
-    </div>
+    <form className="search_form">
+      <input
+        type="text"
+        placeholder="Искать здесь..."
+        onChange={(e) => setSearch(e.target.value)}
+        className="search_inp"
+      />
+      <button className="search_btn">
+        <SearchIcon />
+      </button>
+    </form>
   );
 };
 

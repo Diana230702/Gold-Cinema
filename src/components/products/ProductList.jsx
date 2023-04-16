@@ -12,17 +12,7 @@ const ProductList = () => {
     getProducts();
   }, []);
 
-  return (
-    <div className="productList_wrapper">
-      <div className="productList-films">
-        <SideBar products={products} />
-      </div>
-    </div>
-  );
+  return <SideBar products={products} />;
 };
 
 export default ProductList;
-
-// {products.map((item) => (
-// {/* <ProductCard key={item.id} item={item} /> */}
-// ))}
