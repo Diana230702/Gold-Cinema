@@ -11,6 +11,7 @@ const API_URL = "http://35.198.103.37";
 
 const LOGIN = "accounts/login";
 const REGISTER = "accounts/register";
+
 const REFRESH = "accounts/refresh";
 const IS_AUTH = "IS_AUTH";
 const LIKES_CHANGE = "LIKES_CHANGE";
@@ -108,6 +109,7 @@ const AuthProvider = ({ children }) => {
         `${API_URL}/${LOGIN}/`,
         userCredentials
       );
+
       implementSuccessWithAction(dispatch, LOGIN, data.user);
 
       localStorageSetItem(TOKEN_FIELD, data.access);

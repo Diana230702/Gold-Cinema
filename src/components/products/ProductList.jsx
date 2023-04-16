@@ -5,6 +5,7 @@ import { useProducts } from "../../contexts/ProductContextProvider";
 
 const ProductList = () => {
   const { getProducts, products } = useProducts();
+  console.log(localStorage.getItem("token"));
 
   useEffect(() => {
     getProducts();
