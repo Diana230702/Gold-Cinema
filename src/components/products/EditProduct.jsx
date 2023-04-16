@@ -5,10 +5,10 @@ import { useProducts } from "../../contexts/ProductContextProvider";
 
 const EditProduct = () => {
   const navigate = useNavigate();
-  const { getOneProduct, oneProduct, editProduct } = useProducts();
+  const { getOneProduct, oneProduct, editProduct, getProducts } = useProducts();
   const { id } = useParams();
   useEffect(() => {
-    getOneProduct();
+    getOneProduct(id);
   }, []);
 
   useEffect(() => {
@@ -18,6 +18,7 @@ const EditProduct = () => {
       setCategory(oneProduct.category);
       setCountry(oneProduct.country);
       setDirector(oneProduct.director);
+      setImage(oneProduct.image);
     }
   }, [oneProduct]);
 
@@ -28,7 +29,12 @@ const EditProduct = () => {
   const [director, setDirector] = useState("");
   const [image, setImage] = useState("");
 
-  function handleSave() {
+  function handleSave(event) {
+    // event.preventDefault();
+    // if (!title.trim() || !description || !category || !director || !image) {
+    //   alert("Inputs are empty");
+    //   return;
+    // }
     let NewProduct = new FormData();
     NewProduct.append("title", title);
     NewProduct.append("description", description);
@@ -37,6 +43,7 @@ const EditProduct = () => {
     NewProduct.append("director", director);
     NewProduct.append("image", image);
     editProduct(id, NewProduct);
+    navigate("/productList");
   }
 
   return (
@@ -48,33 +55,39 @@ const EditProduct = () => {
             className="adminPage_inputs"
             type="text"
             placeholder="Title"
+            value={title}
             onChange={(e) => setTitle(e.target.value)}
           />
           <input
             className="adminPage_inputs"
             type="text"
             placeholder="Description"
+            value={description}
             onChange={(e) => setDescription(e.target.value)}
           />
           <input
             className="adminPage_inputs"
             type="text"
             placeholder="Category"
+            value={category}
             onChange={(e) => setCategory(e.target.value)}
           />
           <input
             className="adminPage_inputs"
             type="text"
             placeholder="Country"
+            value={country}
             onChange={(e) => setCountry(e.target.value)}
           />
           <input
             className="adminPage_inputs"
             type="text"
             placeholder="Director"
+            value={director}
             onChange={(e) => setDirector(e.target.value)}
           />
-
+          <p>image before</p>
+          <img src={oneProduct?.image} />
           <input
             className="adminPage_inputs"
             type="file"

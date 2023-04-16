@@ -11,7 +11,6 @@ const AddProduct = () => {
   const [category, setCategory] = useState("");
   const [country, setCountry] = useState("");
   const [director, setDirector] = useState("");
-  const [year, setYear] = useState("");
   const [image, setImage] = useState("");
 
   function handleSave() {
@@ -21,7 +20,6 @@ const AddProduct = () => {
     NewProduct.append("category", category);
     NewProduct.append("country", country);
     NewProduct.append("director", director);
-    NewProduct.append("year", year);
     NewProduct.append("image", image);
     createProduct(NewProduct);
   }
@@ -61,12 +59,7 @@ const AddProduct = () => {
             placeholder="Director"
             onChange={(e) => setDirector(e.target.value)}
           />
-          <input
-            className="adminPage_inputs"
-            type="number"
-            placeholder="Year"
-            onChange={(e) => setYear(e.target.value)}
-          />
+
           <input
             className="adminPage_inputs"
             type="file"
