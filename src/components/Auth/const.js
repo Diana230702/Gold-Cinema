@@ -2,6 +2,8 @@ export const authInitialState = {
   email: "",
   password: "",
   passwordConfirm: "",
+  lastName: "",
+  firstName: "",
   hasAccount: true,
 };
 

@@ -2,19 +2,22 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 import React, { createContext, useContext, useReducer, useState } from "react";
-const API = " http://35.198.103.37";
+const API = "http://35.198.103.37";
 
 export const productContext = createContext();
 export const useProducts = () => useContext(productContext);
 
 const INIT_STATE = {
   products: [],
+  oneProduct: null,
 };
 
 function reducer(state = INIT_STATE, action) {
   switch (action.type) {
     case "GET_PRODUCTS":
       return { ...state, products: action.payload.results };
+    case "GET_ONE_PRODUCTS":
+      return { ...state, oneProduct: action.payload };
 
     default:
       return state;
@@ -24,22 +27,22 @@ const ProductContextProvider = ({ children }) => {
   const navigate = useNavigate();
   const [state, dispatch] = useReducer(reducer, INIT_STATE);
 
-  function moreRepeatFunction() {
-    const tokens = JSON.parse(localStorage.getItem("token"));
-    const Authorization = `Bearer ${tokens}`;
+  // function moreRepeatFunction() {
+  //   const tokens = JSON.parse(localStorage.getItem("token"));
+  //   const Authorization = `Bearer ${tokens}`;
 
-    const config = {
-      headers: {
-        Authorization,
-      },
-    };
-    return config;
-  }
+  //   const config = {
+  //     headers: {
+  //       Authorization,
+  //     },
+  //   };
+  //   return config;
+  // }
   // ! get request //
 
   const getProducts = async () => {
     try {
-      const tokens = JSON.parse(localStorage.getItem("tokens"));
+      const tokens = localStorage.getItem("token");
       const Authorization = `Bearer ${tokens}`;
 
       const config = {
@@ -49,6 +52,8 @@ const ProductContextProvider = ({ children }) => {
       };
       const res = await axios.get(`${API}/products/`, config);
       dispatch({ type: "GET_PRODUCTS", payload: res.data });
+      console.log(res.data);
+      console.log(res);
     } catch (error) {
       console.log(error);
     }
@@ -59,7 +64,8 @@ const ProductContextProvider = ({ children }) => {
   // ! create request //
   const createProduct = async (product) => {
     try {
-      const tokens = JSON.parse(localStorage.getItem("tokens"));
+      const tokens = localStorage.getItem("token");
+
       const Authorization = `Bearer ${tokens}`;
 
       const config = {
@@ -78,23 +84,78 @@ const ProductContextProvider = ({ children }) => {
   // ! delete //
 
   const deleteProduct = async (id) => {
-    await axios.delete(`${API}/${id}`);
-    getProducts();
+    try {
+      const tokens = localStorage.getItem("token");
+
+      const Authorization = `Bearer ${tokens}`;
+
+      const config = {
+        headers: {
+          Authorization,
+        },
+      };
+      await axios.delete(`${API}/products/${id}/`, config);
+      getProducts();
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   // ! delete //
 
   // !edit //
-  async function saveEditProduct(id) {
-    await axios.patch(`${API}/${id}`);
-    getProducts();
-  }
+
+  const editProduct = async (id, editedProduct) => {
+    try {
+      const tokens = localStorage.getItem("token");
+
+      const Authorization = `Bearer ${tokens}`;
+
+      const config = {
+        headers: {
+          Authorization,
+        },
+      };
+      await axios.patch(`${API}/products/${id}/`, editedProduct, config);
+      navigate("/productList");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   // !edit //
+
+  // ! getOneProduct//
+
+  const getOneProduct = async (id) => {
+    try {
+      const tokens = localStorage.getItem("token");
+
+      const Authorization = `Bearer ${tokens}`;
+
+      const config = {
+        headers: {
+          Authorization,
+        },
+      };
+      const res = await axios.get(`${API}/products/${id}/`, config);
+      dispatch({ type: "GET_ONE_PRODUCT", payload: res.data });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  // ! oneProduct//
+
   const values = {
     createProduct,
     deleteProduct,
     products: state.products,
     getProducts,
+    deleteProduct,
+    editProduct,
+    oneProduct: state.oneProduct,
+    getOneProduct,
   };
 
   return (

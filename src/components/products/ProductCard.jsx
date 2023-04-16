@@ -1,9 +1,11 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { useProducts } from "../../contexts/ProductContextProvider";
 import "../products/Products.css";
 
 const ProductCard = ({ item }) => {
   const { deleteProduct } = useProducts();
+  const navigate = useNavigate();
   return (
     <div className="vvv">
       <div className="productCard_card">
@@ -12,7 +14,12 @@ const ProductCard = ({ item }) => {
         <p>{item.year}</p>
         <p className="productCard_p">{item.price}</p>
 
-        <button className="edit-btn">Edit</button>
+        <button
+          className="edit-btn"
+          onClick={() => navigate(`/edit/${item.id}`)}
+        >
+          Edit
+        </button>
         <button className="delete-btn" onClick={() => deleteProduct(item.id)}>
           Delete{" "}
         </button>

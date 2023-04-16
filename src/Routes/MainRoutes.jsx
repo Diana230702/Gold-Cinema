@@ -8,6 +8,7 @@ import FormOrder from "../components/FormOrder/FormOrder";
 
 import AuthPage from "../pages/AuthPage/AuthPage";
 import CartPage from "../pages/CartPage/CartPage";
+import EditProduct from "../components/products/EditProduct";
 
 const MainRoutes = () => {
   const PUBLIC_ROUTES = [
@@ -18,6 +19,7 @@ const MainRoutes = () => {
     { link: "/formOrder", element: <FormOrder />, id: 5 },
     { link: "/auth", element: <AuthPage />, id: 7 },
     { link: "/cart", element: <CartPage />, id: 8 },
+    { link: "/edit/:id", element: <EditProduct />, id: 8 },
   ];
   return (
     <div>

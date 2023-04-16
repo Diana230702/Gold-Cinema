@@ -6,13 +6,13 @@ const AddProduct = () => {
   const { createProduct, product, setProduct } = useProducts();
   const navigate = useNavigate();
 
-  const [title, setTitle] = useState();
-  const [description, setDescription] = useState();
-  const [category, setCategory] = useState();
-  const [country, setCountry] = useState();
-  const [director, setDirector] = useState();
-  const [year, setYear] = useState();
-  const [image, setImage] = useState();
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [category, setCategory] = useState("");
+  const [country, setCountry] = useState("");
+  const [director, setDirector] = useState("");
+  const [year, setYear] = useState("");
+  const [image, setImage] = useState("");
 
   function handleSave() {
     let NewProduct = new FormData();
@@ -23,7 +23,7 @@ const AddProduct = () => {
     NewProduct.append("director", director);
     NewProduct.append("year", year);
     NewProduct.append("image", image);
-    createProduct();
+    createProduct(NewProduct);
   }
 
   return (
@@ -35,59 +35,47 @@ const AddProduct = () => {
             className="adminPage_inputs"
             type="text"
             placeholder="Title"
-            name="title"
             onChange={(e) => setTitle(e.target.value)}
           />
           <input
             className="adminPage_inputs"
             type="text"
             placeholder="Description"
-            name="description"
             onChange={(e) => setDescription(e.target.value)}
           />
           <input
             className="adminPage_inputs"
             type="text"
             placeholder="Category"
-            name="category"
             onChange={(e) => setCategory(e.target.value)}
           />
           <input
             className="adminPage_inputs"
             type="text"
             placeholder="Country"
-            name="country"
             onChange={(e) => setCountry(e.target.value)}
           />
           <input
             className="adminPage_inputs"
             type="text"
             placeholder="Director"
-            name="director"
             onChange={(e) => setDirector(e.target.value)}
           />
           <input
             className="adminPage_inputs"
             type="number"
             placeholder="Year"
-            name="year"
             onChange={(e) => setYear(e.target.value)}
           />
           <input
             className="adminPage_inputs"
-            name="image"
-            type="text"
+            type="file"
             placeholder="Image"
-            onChange={(e) => setImage(e.target.value)}
+            accept="image/*"
+            onChange={(e) => setImage(e.target.files[0])}
           />
 
-          <button
-            className="crud-btn-add"
-            onClick={() => {
-              handleSave(product);
-              navigate("/productList");
-            }}
-          >
+          <button className="crud-btn-add" onClick={handleSave}>
             Add movie
           </button>
         </div>
