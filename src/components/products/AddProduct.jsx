@@ -12,6 +12,7 @@ const AddProduct = () => {
   const [country, setCountry] = useState("");
   const [director, setDirector] = useState("");
   const [image, setImage] = useState("");
+  const [film, setFilm] = useState("");
 
   function handleSave() {
     let NewProduct = new FormData();
@@ -21,6 +22,8 @@ const AddProduct = () => {
     NewProduct.append("country", country);
     NewProduct.append("director", director);
     NewProduct.append("image", image);
+    NewProduct.append("film", film);
+
     createProduct(NewProduct);
   }
 
@@ -66,6 +69,13 @@ const AddProduct = () => {
             placeholder="Image"
             accept="image/*"
             onChange={(e) => setImage(e.target.files[0])}
+          />
+
+          <input
+            className="adminPage_inputs"
+            type="text"
+            placeholder="URL"
+            onChange={(e) => setFilm(e.target.value)}
           />
 
           <button className="crud-btn-add" onClick={handleSave}>

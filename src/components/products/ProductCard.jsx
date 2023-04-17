@@ -23,6 +23,9 @@ const ProductCard = ({ item }) => {
         <button className="delete-btn" onClick={() => deleteProduct(item.id)}>
           Delete{" "}
         </button>
+        <button>
+          <a href={item.film}>watch now</a>
+        </button>
       </div>
     </div>
   );
