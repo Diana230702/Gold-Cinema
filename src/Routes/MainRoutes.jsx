@@ -9,6 +9,8 @@ import FormOrder from "../components/FormOrder/FormOrder";
 import AuthPage from "../pages/AuthPage/AuthPage";
 import CartPage from "../pages/CartPage/CartPage";
 import EditProduct from "../components/products/EditProduct";
+import ForgotPasswordPage from "../pages/ForgotPasswordPage/ForgotPasswordPage";
+import ResetPasswordPage from "../pages/ResetPasswordPage/ResetPasswordPage";
 
 const MainRoutes = () => {
   const PUBLIC_ROUTES = [
@@ -18,6 +20,8 @@ const MainRoutes = () => {
     { link: "/productList", element: <ProductList />, id: 4 },
     { link: "/formOrder", element: <FormOrder />, id: 5 },
     { link: "/auth", element: <AuthPage />, id: 7 },
+    { link: "/forgotPassword", element: <ForgotPasswordPage />, id: 9 },
+    { link: "/resetPassword", element: <ResetPasswordPage />, id: 10 },
     { link: "/cart", element: <CartPage />, id: 8 },
     { link: "/edit/:id", element: <EditProduct />, id: 8 },
   ];

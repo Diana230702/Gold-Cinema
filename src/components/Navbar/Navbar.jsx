@@ -7,7 +7,7 @@ import BurgerMenu from "../BurgerMenu/BurgerMenu";
 import { useAuth } from "../../contexts/auth/AuthProvider";
 import { Button } from "@mui/material";
 
-import {TurnedIn} from "@mui/icons-material";
+import { TurnedIn } from "@mui/icons-material";
 import { IconButton } from "@mui/material";
 
 const LinkStyle = {
@@ -27,9 +27,7 @@ const pages = [
 // ! links----------------------------------------------------------
 
 const Navbar = () => {
-
   const { isAuth, logOut } = useAuth();
-
 
   const navigate = useNavigate();
   return (
@@ -53,13 +51,17 @@ const Navbar = () => {
         Админ
       </Link>
 
-      <IconButton onClick={() => navigate("/cart")}>
-        <TurnedIn sx={{ color: "white" }} />
-      </IconButton>
+      {isAuth && (
+        <IconButton onClick={() => navigate("/cart")}>
+          <TurnedIn sx={{ color: "white" }} />
+        </IconButton>
+      )}
 
-      <Link className="formOrder-btn" to="/formOrder">
-        Оформить подписку
-      </Link>
+      {isAuth && (
+        <Link className="formOrder-btn" to="/formOrder">
+          Оформить подписку
+        </Link>
+      )}
 
       {isAuth ? (
         <Button onClick={logOut}>Выйти</Button>

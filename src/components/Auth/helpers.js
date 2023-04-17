@@ -64,7 +64,7 @@ export const getAuthInputs = (inputsHandler) => {
       onChange: handleChange,
     },
     !hasAccount && {
-      value: lastName,
+      value:  lastName,
       styles: inputStyles,
       className: "register_input",
       label: "Фамилия",
