@@ -2,8 +2,12 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useProducts } from "../../contexts/ProductContextProvider";
 import "../products/Products.css";
+import { IconButton } from "@mui/material";
+import { TurnedIn } from "@mui/icons-material";
+import { useFavorite } from "../../contexts/FavoriteContextProvider";
 
 const ProductCard = ({ item }) => {
+  const { postFavoriteProduct, deleteFavoriteProduct } = useFavorite;
   const { deleteProduct } = useProducts();
   const navigate = useNavigate();
   return (
@@ -23,6 +27,10 @@ const ProductCard = ({ item }) => {
         <button className="delete-btn" onClick={() => deleteProduct(item.id)}>
           Delete{" "}
         </button>
+
+        <IconButton onClick={() => postFavoriteProduct(item)}>
+          <TurnedIn sx={{ color: "white" }} />
+        </IconButton>
       </div>
     </div>
   );
