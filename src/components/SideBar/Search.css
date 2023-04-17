@@ -4,8 +4,7 @@
 .search_form {
   position: relative;
   width: 300px;
-  margin: 0 auto;
-
+  margin-left: auto;
   height: 42px;
 }
 .search_inp {
@@ -21,7 +20,7 @@
   top: 0;
   right: 0;
   z-index: 2;
-  color: aliceblue;
+  color: white;
 }
 .search_inp:focus {
   width: 300px;

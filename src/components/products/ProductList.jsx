@@ -7,6 +7,7 @@ import Filter from "../SideBar/Filter/Filter";
 
 const ProductList = () => {
   const { getProducts, products } = useProducts();
+  console.log(localStorage.getItem("token"));
 
   useEffect(() => {
     getProducts();
