@@ -50,7 +50,10 @@ const ProductContextProvider = ({ children }) => {
           Authorization,
         },
       };
-      const res = await axios.get(`${API}/products/`, config);
+      const res = await axios.get(
+        `${API}/products/${window.location.search}`,
+        config
+      );
       dispatch({ type: "GET_PRODUCTS", payload: res.data });
       console.log(res.data);
       console.log(res);
@@ -148,6 +151,12 @@ const ProductContextProvider = ({ children }) => {
 
   // ! oneProduct//
 
+  // * Search
+  const liveSearch = async () => {
+    const res = await axios.get(`${API}/products/${window.location.search}`);
+    console.log(res);
+  };
+
   const values = {
     createProduct,
     deleteProduct,
@@ -157,8 +166,9 @@ const ProductContextProvider = ({ children }) => {
     editProduct,
     oneProduct: state.oneProduct,
     getOneProduct,
+    liveSearch,
   };
-
+  // console.log(INIT_STATE.products);
   return (
     <productContext.Provider value={values}>{children}</productContext.Provider>
   );
