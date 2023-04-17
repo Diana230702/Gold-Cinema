@@ -5,6 +5,9 @@ import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import { Button, Container } from "@mui/material";
 
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import { useAuth } from "../../contexts/auth/AuthProvider";
 
 import { authContainerProps, authInitialState } from "./const";
@@ -29,13 +32,24 @@ export default function AuthForm() {
 
   const handleSave = (e) => {
     e.preventDefault();
-    const { email, password, passwordConfirm, hasAccount, lastName, firstName } = formState;
+    const {
+      email,
+      password,
+      passwordConfirm,
+      hasAccount,
+      lastName,
+      firstName,
+    } = formState;
 
-    if (!email || !password || (!hasAccount && (!passwordConfirm || !firstName || !lastName))) {
-      alert("Заполните все поля!");
+    if (
+      !email ||
+      !password ||
+      (!hasAccount && (!passwordConfirm || !firstName || !lastName))
+    ) {
+      toast.warning("Заполните все поля!");
     } else {
       if (password !== passwordConfirm && !hasAccount) {
-        alert("Пароли не совпадают");
+        toast.error("Пароли не совпадают");
       }
 
       const newUser = {
@@ -45,15 +59,15 @@ export default function AuthForm() {
 
       if (hasAccount) {
         loginRequest(newUser, () => {
-          alert("Вы авторизовались");
-          navigate('/')
+          toast.success("Вы авторизовались");
+          navigate("/");
         });
       } else {
         newUser.password_confirm = formState.passwordConfirm;
         newUser.first_name = formState.firstName;
         newUser.last_name = formState.lastName;
         registerRequest(newUser, () => {
-          alert("Вы зарегистрировались, можете авторизоваться");
+          toast.success("Вы зарегистрировались, можете авторизоваться");
           handleHasAccount();
         });
       }
@@ -78,7 +92,7 @@ export default function AuthForm() {
       formState.passwordConfirm,
       formState.hasAccount,
       formState.firstName,
-      formState.lastName
+      formState.lastName,
     ]
   );
 
@@ -94,6 +108,9 @@ export default function AuthForm() {
           })}
           <Button type="submit">
             {formState.hasAccount ? "Войти" : "Зарегистрироваться"}
+          </Button>
+          <Button onClick={() => navigate("/forgotPassword")} type="button">
+            Забыли пароль?
           </Button>
           <Button onClick={handleHasAccount} type="button">
             {!formState.hasAccount ? "Уже есть аккаунт?" : "Нету аккаунта?"}
