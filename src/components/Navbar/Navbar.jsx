@@ -9,6 +9,9 @@ import { Button } from "@mui/material";
 
 import { TurnedIn } from "@mui/icons-material";
 import { IconButton } from "@mui/material";
+import { useFavorite } from "../../contexts/FavoriteContextProvider";
+import { useEffect } from "react";
+
 const LinkStyle = {
   listStyleType: "none",
   textDecoration: "none",
@@ -50,13 +53,17 @@ const Navbar = () => {
         Админ
       </Link>
 
-      <IconButton onClick={() => navigate("/cart")}>
-        <TurnedIn sx={{ color: "white" }} />
-      </IconButton>
+      {isAuth && (
+        <IconButton onClick={() => navigate("/cart")}>
+          <TurnedIn sx={{ color: "white" }} />
+        </IconButton>
+      )}
 
-      <Link className="formOrder-btn" to="/formOrder">
-        Поддержать
-      </Link>
+      {isAuth && (
+        <Link className="formOrder-btn" to="/formOrder">
+          Оформить подписку
+        </Link>
+      )}
 
       {isAuth ? (
         <Button onClick={logOut}>Выйти</Button>

@@ -120,6 +120,7 @@ const ProductContextProvider = ({ children }) => {
         },
       };
       await axios.patch(`${API}/products/${id}/`, editedProduct, config);
+      getProducts();
       navigate("/productList");
     } catch (error) {
       console.log(error);
