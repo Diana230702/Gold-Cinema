@@ -9,6 +9,8 @@ import { Button } from "@mui/material";
 
 import { TurnedIn } from "@mui/icons-material";
 import { IconButton } from "@mui/material";
+import { useFavorite } from "../../contexts/FavoriteContextProvider";
+import { useEffect } from "react";
 
 const LinkStyle = {
   listStyleType: "none",
