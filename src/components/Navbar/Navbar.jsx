@@ -53,13 +53,17 @@ const Navbar = () => {
         Админ
       </Link>
 
-      <IconButton onClick={() => navigate("/cart")}>
-        <TurnedIn sx={{ color: "white" }} />
-      </IconButton>
+      {isAuth && (
+        <IconButton onClick={() => navigate("/cart")}>
+          <TurnedIn sx={{ color: "white" }} />
+        </IconButton>
+      )}
 
-      <Link className="formOrder-btn" to="/formOrder">
-        Оформить подписку
-      </Link>
+      {isAuth && (
+        <Link className="formOrder-btn" to="/formOrder">
+          Оформить подписку
+        </Link>
+      )}
 
       {isAuth ? (
         <Button onClick={logOut}>Выйти</Button>

@@ -6,6 +6,7 @@ import { BrowserRouter } from "react-router-dom";
 import AuthProvider from "./contexts/auth/AuthProvider";
 import AppProvider from "./contexts/app/AppProvider";
 import withAuth from "./hoc/withAuth";
+import { ToastContainer } from "react-toastify";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -18,5 +19,6 @@ root.render(
         <AppWithRefreshToken />
       </AuthProvider>
     </AppProvider>
+    <ToastContainer />
   </BrowserRouter>
 );

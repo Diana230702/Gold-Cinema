@@ -76,6 +76,29 @@ const AuthProvider = ({ children }) => {
     localStorageGetItemByKey,
   } = useApp();
   const [userState, dispatch] = useReducer(reducer, initialState);
+  
+  const resetPasswordRequest = async (data, onSuccess) => {
+    try {
+      await axios.put(`${API_URL}/accounts/forgot/`, data);
+
+      onSuccess()
+    } catch (error) {
+      implementErrorWithAction(dispatch, REQUEST_ERROR, error);
+    }
+  };
+
+
+  const forgotPasswordRequest = async (email, onSuccess) => {
+    try {
+      await axios.post(`${API_URL}/accounts/forgot/`, {
+        email: email,
+      });
+
+      onSuccess()
+    } catch (error) {
+      implementErrorWithAction(dispatch, REQUEST_ERROR, error);
+    }
+  };
 
   const refreshToken = async () => {
     try {
@@ -136,6 +159,8 @@ const AuthProvider = ({ children }) => {
     loginRequest,
     logOut,
     refreshToken,
+    forgotPasswordRequest,
+    resetPasswordRequest,
     user: userState.user,
     isAuth: userState.isAuth,
     userLoading: userState.pending,
