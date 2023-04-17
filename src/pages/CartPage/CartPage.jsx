@@ -6,27 +6,30 @@ import { useNavigate } from "react-router-dom";
 import { useProducts } from "../../contexts/ProductContextProvider";
 
 const CartPage = () => {
-  const { getOneProduct, oneProduct } = useProducts();
+  const navigate = useNavigate();
+  const { getProducts, products } = useProducts();
 
-  const [isFavorite, setFavorite] = useState(oneProduct?.is_favorite);
+  const [isFavorite, setFavorite] = useState(null);
 
   useEffect(() => {
-    getOneProduct();
+    getProducts();
   }, []);
-  console.log(oneProduct);
 
-  const navigate = useNavigate();
-
-  const {} = useFavorite();
-  console.log(localStorage.getItem("token"));
-
-  // return (
-  // <div className="favorite-wrapper">
-  //   {favoriteProducts?.map((item) => {
-  //     <ProductCard key={item.id} item={item} />;
-  //   })}
-  // </div>
-  // )
+  // function getFavorites() {
+  //   const favorite = products?.filter((item) => item.is_favorite ? () : ());
+  //   console.log(favorite);
+  // }
+  // getFavorites();
+  // console.log(products);
+  return (
+    <div className="favorite-wrapper">
+      {products.map((item) => {
+        return item.is_favorite ? (
+          <ProductCard key={item.id} item={item} />
+        ) : null;
+      })}
+    </div>
+  );
 };
 
 export default CartPage;

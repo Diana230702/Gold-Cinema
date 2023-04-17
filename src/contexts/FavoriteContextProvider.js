@@ -35,7 +35,7 @@ const FavoriteContextProvider = ({ children }) => {
 
   //! --------------- post favorite products -----------
 
-  const postFavoriteProducts = async (product) => {
+  const postFavoriteProduct = async (product) => {
     try {
       const tokens = localStorage.getItem("token");
       const Authorization = `Bearer ${tokens}`;
@@ -45,16 +45,17 @@ const FavoriteContextProvider = ({ children }) => {
           Authorization,
         },
       };
-      await axios.post(`${API}/favorite/`, product, config);
-      navigate("/cartPage");
-      //   const res = await axios.post(`${API}/favorite/`, product, config);
-      //   dispatch({ type: "POST_FAVORITE_PRODUCTS", payload: res.data });
-      //   console.log(res.data);
-      //   console.log(res);
+      await axios.post(`${API}/favorite/`, { product: product.id }, config);
+      navigate("/cart");
+      // const res = await axios.post(`${API}/favorite/`, product, config);
+      // dispatch({ type: "POST_FAVORITE_PRODUCTS", payload: res.data });
+      // console.log(res.data);
+      // console.log(res);
     } catch (error) {
       console.log(error);
     }
   };
+
   //! --------------- get favorite products -----------
 
   const deleteFavoriteProducts = async (product) => {
@@ -78,26 +79,26 @@ const FavoriteContextProvider = ({ children }) => {
 
   //!---------------------- get one fav product ----------------
 
-  const getOneFavoriteProduct = async (id) => {
-    try {
-      const tokens = localStorage.getItem("token");
+  // const getOneFavoriteProduct = async (id) => {
+  //   try {
+  //     const tokens = localStorage.getItem("token");
 
-      const Authorization = `Bearer ${tokens}`;
+  //     const Authorization = `Bearer ${tokens}`;
 
-      const config = {
-        headers: {
-          Authorization,
-        },
-      };
-      const res = await axios.get(`${API}/products/${id}/`, config);
-      dispatch({ type: "GET_ONE_PRODUCT", payload: res.data });
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  //     const config = {
+  //       headers: {
+  //         Authorization,
+  //       },
+  //     };
+  //     const res = await axios.get(`${API}/products/${id}/`, config);
+  //     dispatch({ type: "GET_ONE_PRODUCT", payload: res.data });
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
   const values = {
-    postFavoriteProducts,
+    postFavoriteProduct,
     deleteFavoriteProducts,
   };
 
