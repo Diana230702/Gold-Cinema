@@ -50,7 +50,10 @@ const ProductContextProvider = ({ children }) => {
           Authorization,
         },
       };
-      const res = await axios.get(`${API}/products/`, config);
+      const res = await axios.get(
+        `${API}/products/${window.location.search}`,
+        config
+      );
       dispatch({ type: "GET_PRODUCTS", payload: res.data });
       console.log(res.data);
       console.log(res);
@@ -145,29 +148,13 @@ const ProductContextProvider = ({ children }) => {
     }
   };
 
-  // * Search function
-  const searchProducts = async () => {
-    try {
-      const tokens = localStorage.getItem("token");
-
-      const Authorization = `Bearer ${tokens}`;
-
-      const config = {
-        headers: {
-          Authorization,
-        },
-      };
-      const res = await axios.get(
-        `${API}/products/${window.location.search}`,
-        config
-      );
-      dispatch({ type: "GET_PRODUCTS", payload: res.data });
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   // ! oneProduct//
+
+  // * Search
+  const liveSearch = async () => {
+    const res = await axios.get(`${API}/products/${window.location.search}`);
+    console.log(res);
+  };
 
   const values = {
     createProduct,
@@ -178,9 +165,9 @@ const ProductContextProvider = ({ children }) => {
     editProduct,
     oneProduct: state.oneProduct,
     getOneProduct,
-    searchProducts,
+    liveSearch,
   };
-  console.log(INIT_STATE.products);
+  // console.log(INIT_STATE.products);
   return (
     <productContext.Provider value={values}>{children}</productContext.Provider>
   );

@@ -6,12 +6,11 @@ import SearchIcon from "@mui/icons-material/Search";
 
 const Search = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const [search, setSearch] = useState(searchParams.get("q") || "");
-
-  const { searchProducts } = useProducts();
+  const [search, setSearch] = useState(searchParams.get("search") || "");
+  const { liveSearch } = useProducts();
   useEffect(() => {
-    setSearchParams({ q: search });
-    searchProducts();
+    setSearchParams({ search: search });
+    liveSearch();
   }, [search]);
 
   return (
@@ -19,7 +18,7 @@ const Search = () => {
       <input
         type="text"
         placeholder="Искать здесь..."
-        // value={search}
+        value={search}
         onChange={(e) => setSearch(e.target.value)}
         className="search_inp"
       />

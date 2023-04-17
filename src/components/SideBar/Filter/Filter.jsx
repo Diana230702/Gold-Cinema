@@ -19,27 +19,21 @@ const Filter = ({ products }) => {
       <Search />
       <div className="productList-films">
         <span className="choose__category">Выберите категорию:</span>
-        {categories.map(
-          (category) => (
-            console.log(category),
-            (
-              <button
-                className="category__btn"
-                key={category}
-                onClick={() => setSelectedCategory(category)}
-                style={{
-                  fontWeight: selectedCategory === category ? "bold" : "normal",
-                  backgroundColor:
-                    selectedCategory === category ? "red" : "black",
-                  border: selectedCategory === category ? "black" : "black ",
-                  color: selectedCategory === category ? "white" : "white ",
-                }}
-              >
-                {category}
-              </button>
-            )
-          )
-        )}
+        {categories.map((category) => (
+          <button
+            className="category__btn"
+            key={category}
+            onClick={() => setSelectedCategory(category)}
+            style={{
+              fontWeight: selectedCategory === category ? "bold" : "normal",
+              backgroundColor: selectedCategory === category ? "red" : "black",
+              border: selectedCategory === category ? "black" : "black ",
+              color: selectedCategory === category ? "white" : "white ",
+            }}
+          >
+            {category}
+          </button>
+        ))}
         <div className="filter__page">
           {filteredProducts.map((item) => (
             <ProductCard item={item} key={item.id} />
