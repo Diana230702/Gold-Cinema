@@ -28,11 +28,14 @@ const ProductCard = ({ item }) => {
         <button className="delete-btn" onClick={() => deleteProduct(item.id)}>
           Delete{" "}
         </button>
+
         <IconButton onClick={() => postFavoriteProduct(item)}>
           <TurnedIn sx={{ color: "white" }} />
         </IconButton>
-        <button>
-          <a href={item.film}>watch now</a>
+        <button className="watch-btn">
+          <a className="watch-a" href={item.film}>
+            watch now
+          </a>
         </button>
       </div>
     </div>
