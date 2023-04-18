@@ -1,0 +1,10 @@
+.btn_pagination {
+  border: 2px solid black;
+  background-color: white;
+  border-radius: 5px;
+}
+.btn_pagination:hover {
+  border: 2px solid black;
+  background-color: red;
+  border-radius: 5px;
+}
