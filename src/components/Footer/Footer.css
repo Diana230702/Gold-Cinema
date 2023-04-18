@@ -1,0 +1,32 @@
+.footerMainContainer{
+    display: flex;
+    padding: 20px;
+    background-color: rgb(54, 79, 68);
+    flex-wrap: wrap;
+    padding-left: 5%;
+}
+.footerInnerContainer{
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    gap: 10%;
+}
+.about-us{
+    width: 40%;
+}
+.fotLinks{
+    display: flex;
+    flex-direction: column;
+    
+}
+.footHeader{
+    font-size:140%;
+    font-weight: 600;
+}
+
+.links-list{
+    list-style-type: none !important;
+    text-decoration: none !important;
+    margin: 0;
+   
+}
