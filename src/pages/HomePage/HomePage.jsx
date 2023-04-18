@@ -31,9 +31,7 @@ const HomePage = () => {
     <div className="MainHomePage">
       <FilmCarousel films={products} />
       <NewPremier films={products} />
-      <NewPremier films={products} />
-      <NewPremier films={products} />
-      <NewPremier films={products} />
+
       {/* <Collections collection={films} /> */}
 
       {/* <div className="Collection">
