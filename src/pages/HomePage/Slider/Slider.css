@@ -1,0 +1,28 @@
+.imageSlider{
+  /* margin: 20%; */
+  background-size: cover;
+}
+.CarouselSX{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  color: #343434;
+  padding: 0;
+  background-size: cover;
+}
+.CheckButton{
+  color: white;
+}
+h2{ 
+  position: absolute;
+}
+.itemsSlider{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.css-1f8sh1y {
+  width: 100%;
+  border: none;
+}
