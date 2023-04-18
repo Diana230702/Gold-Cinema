@@ -72,7 +72,6 @@ const Navbar = () => {
           Зарегистрироваться
         </Link>
       )}
-
       <div id="burger-menu">
         <div id="wrapper">
           <BurgerMenu />

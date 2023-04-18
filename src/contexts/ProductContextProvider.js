@@ -1,8 +1,8 @@
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
-import React, { createContext, useContext, useReducer, useState } from "react";
-const API = "http://35.198.103.37";
+import React, { createContext, useContext, useReducer, useState } from 'react';
+const API = 'http://35.198.103.37';
 
 export const productContext = createContext();
 export const useProducts = () => useContext(productContext);
@@ -10,13 +10,18 @@ export const useProducts = () => useContext(productContext);
 const INIT_STATE = {
   products: [],
   oneProduct: null,
+  pages: 0,
 };
 
 function reducer(state = INIT_STATE, action) {
   switch (action.type) {
-    case "GET_PRODUCTS":
-      return { ...state, products: action.payload.results };
-    case "GET_ONE_PRODUCT":
+    case 'GET_PRODUCTS':
+      return {
+        ...state,
+        products: action.payload.results,
+        pages: Math.ceil(action.payload.count / 16),
+      };
+    case 'GET_ONE_PRODUCT':
       return { ...state, oneProduct: action.payload };
 
     default:
@@ -42,7 +47,7 @@ const ProductContextProvider = ({ children }) => {
 
   const getProducts = async () => {
     try {
-      const tokens = localStorage.getItem("token");
+      const tokens = localStorage.getItem('token');
       const Authorization = `Bearer ${tokens}`;
 
       const config = {
@@ -50,8 +55,8 @@ const ProductContextProvider = ({ children }) => {
           Authorization,
         },
       };
-      const res = await axios.get(`${API}/products/`, config);
-      dispatch({ type: "GET_PRODUCTS", payload: res.data });
+      const res = await axios.get(`${API}/products/${window.location.search}`, config);
+      dispatch({ type: 'GET_PRODUCTS', payload: res.data });
       console.log(res.data);
       console.log(res);
     } catch (error) {
@@ -64,7 +69,7 @@ const ProductContextProvider = ({ children }) => {
   // ! create request //
   const createProduct = async (product) => {
     try {
-      const tokens = localStorage.getItem("token");
+      const tokens = localStorage.getItem('token');
 
       const Authorization = `Bearer ${tokens}`;
 
@@ -74,7 +79,7 @@ const ProductContextProvider = ({ children }) => {
         },
       };
       await axios.post(`${API}/products/`, product, config);
-      navigate("productList");
+      navigate('productList');
     } catch (error) {
       console.log(error);
     }
@@ -85,7 +90,7 @@ const ProductContextProvider = ({ children }) => {
 
   const deleteProduct = async (id) => {
     try {
-      const tokens = localStorage.getItem("token");
+      const tokens = localStorage.getItem('token');
 
       const Authorization = `Bearer ${tokens}`;
 
@@ -107,7 +112,7 @@ const ProductContextProvider = ({ children }) => {
 
   const editProduct = async (id, editedProduct) => {
     try {
-      const tokens = localStorage.getItem("token");
+      const tokens = localStorage.getItem('token');
 
       const Authorization = `Bearer ${tokens}`;
 
@@ -118,7 +123,7 @@ const ProductContextProvider = ({ children }) => {
       };
       await axios.patch(`${API}/products/${id}/`, editedProduct, config);
       getProducts();
-      navigate("/productList");
+      navigate('/productList');
     } catch (error) {
       console.log(error);
     }
@@ -130,7 +135,7 @@ const ProductContextProvider = ({ children }) => {
 
   const getOneProduct = async (id) => {
     try {
-      const tokens = localStorage.getItem("token");
+      const tokens = localStorage.getItem('token');
 
       const Authorization = `Bearer ${tokens}`;
 
@@ -140,7 +145,7 @@ const ProductContextProvider = ({ children }) => {
         },
       };
       const res = await axios.get(`${API}/products/${id}/`, config);
-      dispatch({ type: "GET_ONE_PRODUCT", payload: res.data });
+      dispatch({ type: 'GET_ONE_PRODUCT', payload: res.data });
     } catch (error) {
       console.log(error);
     }
@@ -148,6 +153,67 @@ const ProductContextProvider = ({ children }) => {
 
   // ! oneProduct//
 
+  //! LikeProduct
+  const likeProduct = async (body) => {
+    try {
+      const tokens = localStorage.getItem('token');
+      const Authorization = `Bearer ${tokens}`;
+      console.log(Authorization);
+
+      const config = {
+        headers: {
+          Authorization,
+        },
+      };
+      const res = await axios.post(`${API}/likes/`, body, config);
+      // dispatch({ type: 'GET_PRODUCTS', payload: res.data });
+      console.log(res.data);
+      console.log(res);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  //! EndLikeProduct
+  //! CommentProduct
+  const CommentProduct = async (body) => {
+    try {
+      const tokens = localStorage.getItem('token');
+      const Authorization = `Bearer ${tokens}`;
+      console.log(Authorization);
+
+      const config = {
+        headers: {
+          Authorization,
+        },
+      };
+      const res = await axios.post(`${API}/comments/`, body, config);
+      // dispatch({ type: 'GET_PRODUCTS', payload: res.data });
+      console.log(res.data);
+      console.log(res);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  //! EndCommentProduct
+  // * Search
+  const liveSearch = async () => {
+    const res = await axios.get(`${API}/products/${window.location.search}`);
+  };
+  // ! search
+
+  // // *Pagination
+  // const PaginationCount = async () => {
+  //   const res = await axios.get(`${API}/products/`);
+  //   let count = res.data.count / 16.Math.;
+  //   console.log(count);
+  //   return count;
+  // };
+
+  // const PaginationLimit = () => {
+  //   let countPages = PaginationCount();
+  //   console.log(countPages);
+  // };
+  // PaginationLimit();
   const values = {
     createProduct,
     deleteProduct,
@@ -157,11 +223,13 @@ const ProductContextProvider = ({ children }) => {
     editProduct,
     oneProduct: state.oneProduct,
     getOneProduct,
+    liveSearch,
+    pages: state.pages,
+    likeProduct,
+    CommentProduct,
   };
 
-  return (
-    <productContext.Provider value={values}>{children}</productContext.Provider>
-  );
+  return <productContext.Provider value={values}>{children}</productContext.Provider>;
 };
 
 export default ProductContextProvider;
