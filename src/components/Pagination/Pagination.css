@@ -1,6 +1,6 @@
 .pagination_block {
-  margin-top: 3%;
+  margin: 4% 0 5px 0;
   display: flex;
   justify-content: center;
-  background-color: black;
+  /* background-color: black; */
 }

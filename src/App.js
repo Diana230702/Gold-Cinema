@@ -7,7 +7,7 @@ import FavoriteContextProvider from "./contexts/FavoriteContextProvider";
 
 const App = () => {
   return (
-    <div>
+    <div className="app_global">
       <FavoriteContextProvider>
         <ProductContextProvider>
           <Navbar />
