@@ -10,12 +10,17 @@ export const useProducts = () => useContext(productContext);
 const INIT_STATE = {
   products: [],
   oneProduct: null,
+  pages: 0,
 };
 
 function reducer(state = INIT_STATE, action) {
   switch (action.type) {
     case "GET_PRODUCTS":
-      return { ...state, products: action.payload.results };
+      return {
+        ...state,
+        products: action.payload.results,
+        pages: Math.ceil(action.payload.count / 16),
+      };
     case "GET_ONE_PRODUCT":
       return { ...state, oneProduct: action.payload };
 
@@ -154,9 +159,22 @@ const ProductContextProvider = ({ children }) => {
   // * Search
   const liveSearch = async () => {
     const res = await axios.get(`${API}/products/${window.location.search}`);
-    console.log(res);
   };
+  // ! search
 
+  // // *Pagination
+  // const PaginationCount = async () => {
+  //   const res = await axios.get(`${API}/products/`);
+  //   let count = res.data.count / 16.Math.;
+  //   console.log(count);
+  //   return count;
+  // };
+
+  // const PaginationLimit = () => {
+  //   let countPages = PaginationCount();
+  //   console.log(countPages);
+  // };
+  // PaginationLimit();
   const values = {
     createProduct,
     deleteProduct,
@@ -167,8 +185,8 @@ const ProductContextProvider = ({ children }) => {
     oneProduct: state.oneProduct,
     getOneProduct,
     liveSearch,
+    pages: state.pages,
   };
-  // console.log(INIT_STATE.products);
   return (
     <productContext.Provider value={values}>{children}</productContext.Provider>
   );

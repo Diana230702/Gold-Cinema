@@ -46,5 +46,4 @@ const Filter = ({ products }) => {
 
 export default Filter;
 {
-  /* <CardProduct item={item} key={item.id} /> */
 }
