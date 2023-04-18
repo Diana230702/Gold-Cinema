@@ -3,7 +3,6 @@ import ProductCard from "./ProductCard";
 import "../products/Products.css";
 import { useProducts } from "../../contexts/ProductContextProvider";
 import { useSearchParams } from "react-router-dom";
-import PaginationList from "./PaginationList";
 
 const ProductList = () => {
   const { getProducts, products, pages } = useProducts();
@@ -37,11 +36,6 @@ const ProductList = () => {
           <ProductCard key={item.id} item={item} />
         ))}
       </div>
-      <PaginationList
-        currentPage={currentPage}
-        setCurrentPage={setCurrentPage}
-        getPagesCount={getPagesCount}
-      />
     </div>
   );
 };
