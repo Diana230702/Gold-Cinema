@@ -1,0 +1,7 @@
+.favorite-wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    background-color: black;
+    padding: 20px 50px;
+}
