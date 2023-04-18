@@ -159,9 +159,22 @@ const ProductContextProvider = ({ children }) => {
   // * Search
   const liveSearch = async () => {
     const res = await axios.get(`${API}/products/${window.location.search}`);
-    console.log(res);
   };
+  // ! search
 
+  // // *Pagination
+  // const PaginationCount = async () => {
+  //   const res = await axios.get(`${API}/products/`);
+  //   let count = res.data.count / 16.Math.;
+  //   console.log(count);
+  //   return count;
+  // };
+
+  // const PaginationLimit = () => {
+  //   let countPages = PaginationCount();
+  //   console.log(countPages);
+  // };
+  // PaginationLimit();
   const values = {
     createProduct,
     deleteProduct,
@@ -173,8 +186,8 @@ const ProductContextProvider = ({ children }) => {
     getOneProduct,
     pages: state.pages,
     liveSearch,
+    pages: state.pages,
   };
-  // console.log(INIT_STATE.products);
   return (
     <productContext.Provider value={values}>{children}</productContext.Provider>
   );

@@ -18,6 +18,8 @@ const LinkStyle = {
   color: "white",
 };
 
+const ADMIN = "admin@gmail.com";
+
 // ! links----------------------------------------------------------
 const pages = [
   {
@@ -29,7 +31,7 @@ const pages = [
 // ! links----------------------------------------------------------
 
 const Navbar = () => {
-  const { isAuth, logOut } = useAuth();
+  const { isAuth, logOut, user } = useAuth();
 
   const navigate = useNavigate();
   return (
@@ -49,9 +51,11 @@ const Navbar = () => {
         Выбрать фильм
       </Link>
 
-      <Link className="admin-nav-link" to="/admin">
-        Админ
-      </Link>
+      {user === ADMIN ? (
+        <Link className="admin-nav-link" to="/admin">
+          Админ
+        </Link>
+      ) : null}
 
       {isAuth && (
         <IconButton onClick={() => navigate("/cart")}>
