@@ -1,7 +1,13 @@
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-import React, { createContext, useContext, useReducer, useState } from "react";
+import React, {
+  createContext,
+  useContext,
+  useEffect,
+  useReducer,
+  useState,
+} from "react";
 const API = "http://35.198.103.37";
 
 export const productContext = createContext();
@@ -142,6 +148,10 @@ const ProductContextProvider = ({ children }) => {
       console.log(error);
     }
   };
+  useEffect(() => {
+    getOneProduct(53);
+  }, []);
+
   // ! oneProduct//
 
   //! LikeProduct
