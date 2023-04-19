@@ -140,7 +140,7 @@ const ProductContextProvider = ({ children }) => {
           Authorization,
         },
       };
-      const res = await axios.get(`${API}/products/${id}/ratings/`, config);
+      const res = await axios.get(`${API}/products/${id}/`, config);
       dispatch({ type: "GET_ONE_PRODUCT", payload: res.data });
       console.log(res);
       console.log(res.data);
