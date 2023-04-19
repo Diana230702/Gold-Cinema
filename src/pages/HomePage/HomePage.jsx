@@ -1,31 +1,31 @@
-import React, { useEffect } from 'react';
-import Slider from './Slider/Slider';
-import SimpleSlider from './Slider/Slider';
-import { Button } from '@mui/material';
-import { useNavigate } from 'react-router-dom';
-import '../HomePage/HomePage.css';
-import FilmCarousel from './FilmCarousel';
-import NewPremier from './FilmCards/NewPermier/NewPremier';
-import { useProducts } from '../../contexts/ProductContextProvider';
-import Collections from './FilmCards/Collections/Collections';
+import React, { useEffect } from "react";
+import Slider from "./Slider/Slider";
+import SimpleSlider from "./Slider/Slider";
+import { Button } from "@mui/material";
+import { useNavigate } from "react-router-dom";
+import "../HomePage/HomePage.css";
+import FilmCarousel from "./FilmCarousel";
+import NewPremier from "./FilmCards/NewPermier/NewPremier";
+import { useProducts } from "../../contexts/ProductContextProvider";
+import Collections from "./FilmCards/Collections/Collections";
 
 const collection = [
   {
-    img: 'https://i.imgur.com/2GCHO0D.jpg',
-    name: 'Sonic',
-    price: 'free',
+    img: "https://i.imgur.com/2GCHO0D.jpg",
+    name: "Sonic",
+    price: "free",
   },
 ];
 
 const HomePage = () => {
   const { getProducts, products } = useProducts();
-  console.log(localStorage.getItem('token'));
+  // console.log(localStorage.getItem("token"));
   const useNaviage = useNavigate();
   useEffect(() => {
     getProducts();
   }, []);
   useEffect(() => {
-    console.log(products);
+    // console.log(products);
   }, [products]);
   return (
     <div className="MainHomePage">

@@ -1,11 +1,14 @@
 /*======================
     404 page
 =======================*/
-
+.main-nav {
+  /* display: none; */
+}
 .page_404 {
   padding: 40px 0;
-  background: #fff;
+  background: white;
   font-family: "Arvo", serif;
+  height: 1430px;
 }
 
 .page_404 img {
