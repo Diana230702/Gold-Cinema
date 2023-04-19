@@ -86,8 +86,8 @@ const EditProduct = () => {
             value={director}
             onChange={(e) => setDirector(e.target.value)}
           />
-          <p>image before</p>
-          <img src={oneProduct?.image} />
+          <p className="image_p">image before</p>
+          <img className="imageBefore" src={oneProduct?.image} />
           <input
             className="adminPage_inputs"
             type="file"
