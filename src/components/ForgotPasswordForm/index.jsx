@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { useAuth } from "../../contexts/auth/AuthProvider";
 import { useNavigate } from "react-router-dom";
 import "../ForgotPasswordForm/style.css";
-import { Margin } from "@mui/icons-material";
+import Avatar from "@mui/material/Avatar";
 
 const ForgotPasswordForm = () => {
   const navigate = useNavigate();
@@ -21,7 +21,10 @@ const ForgotPasswordForm = () => {
   };
 
   return (
-    <Box
+    <div className="forgotContainer">
+      <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}/>
+      <h1>Восстановление пароля</h1>
+         <Box
       className="forgotWrapper"
       component="form"
       onSubmit={handleResetPasswordSumbit}
@@ -33,6 +36,8 @@ const ForgotPasswordForm = () => {
       />
       <Button type="submit">Отправить ссылку на восстановление</Button>
     </Box>
+    </div>
+ 
   );
 };
 
