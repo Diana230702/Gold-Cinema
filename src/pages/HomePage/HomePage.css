@@ -1,6 +1,8 @@
 .MainHomePage{
   background-color: rgb(44, 44, 44);
   color: white;
+  padding-bottom: 100px;
+  
   /* display: flex; */
   
 }
