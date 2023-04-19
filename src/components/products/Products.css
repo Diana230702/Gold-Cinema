@@ -2,7 +2,7 @@
   width: 200px;
   height: 240px;
   border-radius: 5px;
- 
+
   /* justify-content: center; */
 }
 
@@ -18,7 +18,7 @@
 
 .productCard_card {
   width: 213px;
-  height: 390px;
+  height: 450px;
   background: rgb(29, 29, 29);
   padding: 0.4em;
   border-radius: 6px;
@@ -52,29 +52,29 @@
   background-color: transparent;
   border: 2px solid rgb(141, 141, 141);
   color: white;
-} 
+}
 
-.productCard_p{
+.productCard_p {
   color: white;
 }
 
-.watch-a{
+.watch-a {
   list-style-type: none;
   text-decoration: none;
-   color: white;
+  color: white;
 }
-.watch-btn{
+.watch-btn {
   background-color: rgb(171, 0, 0);
   width: 50%;
   height: 26px;
   border-radius: 8px;
-  
+
   border: 1px transparent solid;
 }
 /* .product_list {
   background-color: black;
 } */
-.card-comment{
- margin-top: 7px;
- border-radius: 5px;
+.card-comment {
+  margin-top: 7px;
+  border-radius: 5px;
 }

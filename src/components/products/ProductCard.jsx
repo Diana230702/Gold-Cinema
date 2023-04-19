@@ -9,6 +9,9 @@ import { useContext } from "react";
 import RatingComponent from "../Rating/RatingComponent";
 
 const ProductCard = ({ item }) => {
+  const ADMIN = '{"user":"admin@gmail.com"}';
+  const userEmail = localStorage.getItem("user");
+
   const { postFavoriteProduct, deleteFavoriteProduct } = useFavorite();
   const { deleteProduct } = useProducts();
   const navigate = useNavigate();
@@ -20,15 +23,23 @@ const ProductCard = ({ item }) => {
         <p className="productCard_p">{item.title}</p>
         <p>{item.year}</p>
         <p className="productCard_p">{item.price}</p>
-        <button
-          className="edit-btn"
-          onClick={() => navigate(`/edit/${item.id}`)}
-        >
-          Edit
-        </button>
-        <button className="delete-btn" onClick={() => deleteProduct(item.id)}>
-          Delete{" "}
-        </button>
+        {userEmail === ADMIN ? (
+          <>
+            <button
+              className="edit-btn"
+              onClick={() => navigate(`/edit/${item.id}`)}
+            >
+              Edit
+            </button>
+            <button
+              className="delete-btn"
+              onClick={() => deleteProduct(item.id)}
+            >
+              Delete{" "}
+            </button>
+          </>
+        ) : null}
+
         <RatingComponent />
         <IconButton onClick={() => postFavoriteProduct(item)}>
           <TurnedIn sx={{ color: "white" }} />
