@@ -44,8 +44,8 @@ const ModalForPay = () => {
           <br />
 
           <input
-            type="date"
-            placeholder="date"
+            type="email"
+            placeholder="email"
             className="input2"
             value={input2Value}
             onChange={(event) => setInput2Value(event.target.value)}

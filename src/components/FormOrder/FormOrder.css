@@ -4,11 +4,12 @@
   width: 100%;
   gap: 50px;
   padding-right: 2%;
+  color: aliceblue;
 }
 .input1 {
   margin-left: 13%;
   width: 100%;
-  border: 2px solid black;
+  border: 2px solid white;
   height: 9%;
   font-size: 25px;
   padding: 12px 20px;
@@ -18,12 +19,15 @@
   box-sizing: border-box;
 }
 .zagalovok {
+  color: white;
+
   margin-left: 13%;
   font-size: 27px;
 }
 .pay_container {
   display: flex;
   padding: 10% 10%;
+  background-color: black;
 }
 
 .img_cart {
@@ -54,6 +58,10 @@
   font-size: 16px;
   cursor: pointer;
   border-radius: 8px;
+}
+
+.btn_submit:hover {
+  background-color: rgb(208, 84, 84);
 }
 
 @media all and (max-width: 1320px) {
