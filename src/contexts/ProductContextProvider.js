@@ -202,6 +202,7 @@ const ProductContextProvider = ({ children }) => {
   const liveSearch = async () => {
     const res = await axios.get(`${API}/products/${window.location.search}`);
   };
+
   // ! search
 
   const values = {
