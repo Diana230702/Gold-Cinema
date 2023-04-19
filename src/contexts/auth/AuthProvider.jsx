@@ -142,6 +142,7 @@ const AuthProvider = ({ children }) => {
       implementErrorWithAction(dispatch, REQUEST_ERROR, error);
     }
   };
+ 
 
   const logOut = () => {
     localStorageRemoveAll();
@@ -157,6 +158,7 @@ const AuthProvider = ({ children }) => {
     resetPasswordRequest,
     user: userState.user,
     isAuth: userState.isAuth,
+    
     userLoading: userState.pending,
   };
 
@@ -165,5 +167,4 @@ const AuthProvider = ({ children }) => {
 
 export default AuthProvider;
 
-// nurs@net.com
-// Qwerty1!
+
