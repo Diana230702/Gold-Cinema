@@ -6,13 +6,13 @@ import { IconButton } from "@mui/material";
 import { TurnedIn } from "@mui/icons-material";
 import { useFavorite } from "../../contexts/FavoriteContextProvider";
 import { useContext } from "react";
-import { useAuth } from "../../contexts/auth/AuthProvider";
-const ADMIN = "admin@gmail.com";
+import RatingComponent from "../Rating/RatingComponent";
 
 const ProductCard = ({ item }) => {
   const ADMIN = '{"user":"admin@gmail.com"}';
-  const { postFavoriteProduct, deleteFavoriteProduct } = useFavorite();
   const userEmail = localStorage.getItem("user");
+
+  const { postFavoriteProduct, deleteFavoriteProduct } = useFavorite();
   const { deleteProduct } = useProducts();
   const navigate = useNavigate();
   const [comment, setComment] = useState("");
@@ -23,7 +23,6 @@ const ProductCard = ({ item }) => {
         <p className="productCard_p">{item.title}</p>
         <p>{item.year}</p>
         <p className="productCard_p">{item.price}</p>
-
         {userEmail === ADMIN ? (
           <>
             <button
@@ -40,16 +39,21 @@ const ProductCard = ({ item }) => {
             </button>
           </>
         ) : null}
+
+        <RatingComponent />
         <IconButton onClick={() => postFavoriteProduct(item)}>
           <TurnedIn sx={{ color: "white" }} />
         </IconButton>
-        <button>
-          <a href={item.film}>watch now</a>
+        <button className="watch-btn">
+          <a className="watch-a" href={item.film}>
+            watch now
+          </a>
         </button>
         <input
+          className="card-comment"
           value={comment}
           onChange={(ivent) => setComment(ivent.target.value)}
-          placeholder="WriteyourPenis"
+          placeholder="leave comment"
         ></input>
         {/* <button onClick={() => commentProduct({ body: comment, owner: user.id, product: item.id })}>
           send

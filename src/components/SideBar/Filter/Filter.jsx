@@ -1,8 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import ProductCard from "../../products/ProductCard";
 import "../Filter/Filter.css";
 import Search from "../Search/Search";
+
 const Filter = ({ products }) => {
+  const buttonRef = useRef(null);
+
+  useEffect(() => {
+    buttonRef.current.click();
+  }, []);
+
   const [selectedCategory, setSelectedCategory] = useState("всe");
 
   const categories = [
@@ -21,6 +28,7 @@ const Filter = ({ products }) => {
         <span className="choose__category">Выберите категорию:</span>
         {categories.map((category) => (
           <button
+            ref={buttonRef}
             className="category__btn"
             key={category}
             onClick={() => setSelectedCategory(category)}

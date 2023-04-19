@@ -1,7 +1,8 @@
 .productCard_img {
-  width: 220px;
-  height: 200px;
+  width: 200px;
+  height: 240px;
   border-radius: 5px;
+
   /* justify-content: center; */
 }
 
@@ -16,8 +17,8 @@
 }
 
 .productCard_card {
-  width: 220px;
-  height: 330px;
+  width: 213px;
+  height: 450px;
   background: rgb(29, 29, 29);
   padding: 0.4em;
   border-radius: 6px;
@@ -45,10 +46,35 @@
 }
 .delete-btn {
   height: 25px;
-  width: 25%;
+  width: 60px;
   margin: 0px 10px 0px 0px;
   border-radius: 5px;
   background-color: transparent;
   border: 2px solid rgb(141, 141, 141);
   color: white;
+}
+
+.productCard_p {
+  color: white;
+}
+
+.watch-a {
+  list-style-type: none;
+  text-decoration: none;
+  color: white;
+}
+.watch-btn {
+  background-color: rgb(171, 0, 0);
+  width: 50%;
+  height: 26px;
+  border-radius: 8px;
+
+  border: 1px transparent solid;
+}
+/* .product_list {
+  background-color: black;
+} */
+.card-comment {
+  margin-top: 7px;
+  border-radius: 5px;
 }

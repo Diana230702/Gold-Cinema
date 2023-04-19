@@ -1,11 +1,21 @@
-.forgotWrapper{
+.forgotContainer{
+    background-color: white;
+    height: 536px;
     display: flex;
-    
     flex-direction: column;
-    
+    justify-content: center;
     align-items: center;
-    margin: 10% 35%;
 }
 
+.forgotWrapper {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+ 
 
+  align-items: center;
+ justify-content: center;
+  margin: 10px 35%;
+  gap:30px
+} 
 

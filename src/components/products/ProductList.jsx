@@ -6,7 +6,7 @@ import SideBar from "../SideBar/SideBar";
 import Filter from "../SideBar/Filter/Filter";
 import { useSearchParams } from "react-router-dom";
 import PaginationList from "../Pagination/Pagination";
-
+import "../products/Products.css";
 const ProductList = () => {
   const { getProducts, products, pages } = useProducts();
   const [searchParams, setSearchParams] = useSearchParams();
@@ -34,7 +34,7 @@ const ProductList = () => {
   }, []);
 
   return (
-    <div>
+    <div className="product_list">
       <SideBar products={products} />
       <PaginationList
         currentPage={currentPage}

@@ -12,6 +12,8 @@ import { useAuth } from "../../contexts/auth/AuthProvider";
 
 import { authContainerProps, authInitialState } from "./const";
 import { getAuthInputs, onChangeHelpers } from "./helpers";
+import { width } from "@mui/system";
+
 
 export default function AuthForm() {
   const navigate = useNavigate();
@@ -97,8 +99,12 @@ export default function AuthForm() {
   );
 
   return (
-    <div id="form_reigister">
+    <div
+      id="form_reigister"
+      style={{ backgroundColor: "white", height: "auto"}}
+    >
       <Container>
+        
         <h1 style={{ textAlign: "center" }}>
           {formState.hasAccount ? "Авторизация" : "Регистрация"}
         </h1>

@@ -156,48 +156,6 @@ const ProductContextProvider = ({ children }) => {
 
   // ! oneProduct//
 
-  //! LikeProduct
-  const likeProduct = async (body) => {
-    try {
-      const tokens = localStorage.getItem("token");
-      const Authorization = `Bearer ${tokens}`;
-      console.log(Authorization);
-
-      const config = {
-        headers: {
-          Authorization,
-        },
-      };
-      const res = await axios.post(`${API}/likes/`, body, config);
-      // dispatch({ type: 'GET_PRODUCTS', payload: res.data });
-      console.log(res.data);
-      console.log(res);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-  //! EndLikeProduct
-  //! CommentProduct
-  const CommentProduct = async (body) => {
-    try {
-      const tokens = localStorage.getItem("token");
-      const Authorization = `Bearer ${tokens}`;
-      console.log(Authorization);
-
-      const config = {
-        headers: {
-          Authorization,
-        },
-      };
-      const res = await axios.post(`${API}/comments/`, body, config);
-      // dispatch({ type: 'GET_PRODUCTS', payload: res.data });
-      console.log(res.data);
-      console.log(res);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-  //! EndCommentProduct
   // * Search
   const liveSearch = async () => {
     const res = await axios.get(`${API}/products/${window.location.search}`);
@@ -229,10 +187,7 @@ const ProductContextProvider = ({ children }) => {
     pages: state.pages,
     liveSearch,
     pages: state.pages,
-    likeProduct,
-    CommentProduct,
   };
-
   return (
     <productContext.Provider value={values}>{children}</productContext.Provider>
   );
