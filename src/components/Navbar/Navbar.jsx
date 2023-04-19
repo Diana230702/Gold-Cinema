@@ -61,7 +61,7 @@ const Navbar = () => {
 
       {isAuth && (
         <Link className="formOrder-btn" to="/formOrder">
-          Оформить подписку
+          Поддержать нас
         </Link>
       )}
 

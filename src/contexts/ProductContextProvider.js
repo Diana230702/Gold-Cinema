@@ -32,17 +32,6 @@ const ProductContextProvider = ({ children }) => {
   const navigate = useNavigate();
   const [state, dispatch] = useReducer(reducer, INIT_STATE);
 
-  // function moreRepeatFunction() {
-  //   const tokens = JSON.parse(localStorage.getItem("token"));
-  //   const Authorization = `Bearer ${tokens}`;
-
-  //   const config = {
-  //     headers: {
-  //       Authorization,
-  //     },
-  //   };
-  //   return config;
-  // }
   // ! get request //
 
   const getProducts = async () => {
@@ -61,7 +50,6 @@ const ProductContextProvider = ({ children }) => {
       );
       dispatch({ type: "GET_PRODUCTS", payload: res.data });
       console.log(res.data);
-      console.log(res);
     } catch (error) {
       console.log(error);
     }
@@ -147,13 +135,13 @@ const ProductContextProvider = ({ children }) => {
           Authorization,
         },
       };
-      const res = await axios.get(`${API}/products/${id}/`, config);
+      const res = await axios.get(`${API}/products/${id}/ratings/`, config);
       dispatch({ type: "GET_ONE_PRODUCT", payload: res.data });
+      console.log(res);
     } catch (error) {
       console.log(error);
     }
   };
-
   // ! oneProduct//
 
   //! LikeProduct
