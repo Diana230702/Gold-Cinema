@@ -4,7 +4,7 @@ import { Rating, Typography } from "@mui/material";
 
 function RatingComponent() {
   const [value, setValue] = useState();
-  console.log(value);
+  // console.log(value);
   return (
     <div>
       <Typography component="legend">Отзыв</Typography>
