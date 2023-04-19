@@ -31,9 +31,10 @@ const pages = [
 // ! links----------------------------------------------------------
 
 const Navbar = () => {
-  const { isAuth, logOut } = useAuth();
+  const { isAuth, logOut, emailUser } = useAuth();
   // console.log();
   const userEmail = localStorage.getItem("user");
+
   console.log(userEmail);
 
   const navigate = useNavigate();
@@ -69,6 +70,11 @@ const Navbar = () => {
       {isAuth && (
         <Link className="formOrder-btn" to="/formOrder">
           Поддержать нас
+        </Link>
+      )}
+      {isAuth && (
+        <Link className="formOrder-btn" to="/auth">
+          <p className="user_acc">{emailUser}</p>
         </Link>
       )}
 
