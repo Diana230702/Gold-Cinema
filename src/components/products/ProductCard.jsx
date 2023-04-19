@@ -5,13 +5,18 @@ import '../products/Products.css';
 import { IconButton } from '@mui/material';
 import { TurnedIn } from '@mui/icons-material';
 import { useFavorite } from '../../contexts/FavoriteContextProvider';
-import { useContext } from 'react';
 
-const ProductCard = ({ item }) => {
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+
+const ProductCard = ({ item, film }) => {
   const { postFavoriteProduct, deleteFavoriteProduct } = useFavorite();
   const { deleteProduct, commentProduct } = useProducts();
   const navigate = useNavigate();
+  const { likeProduct } = useProducts();
   const [comment, setComment] = useState('');
+  const [isLiked, setIsLiked] = useState(true);
+
   return (
     <div className="vvv">
       <div className="productCard_card">
@@ -19,7 +24,6 @@ const ProductCard = ({ item }) => {
         <p className="productCard_p">{item.title}</p>
         <p>{item.year}</p>
         <p className="productCard_p">{item.price}</p>
-
         <button className="edit-btn" onClick={() => navigate(`/edit/${item.id}`)}>
           Edit
         </button>
@@ -35,11 +39,33 @@ const ProductCard = ({ item }) => {
             watch now
           </a>
         </button>
+        {isLiked ? (
+          <div
+            onClick={() => {
+              setIsLiked(false);
+              likeProduct({ product: film.id });
+            }}>
+            <FavoriteBorderIcon />
+          </div>
+        ) : (
+          <div
+            onClick={() => {
+              console.log('TEST');
+              setIsLiked(true);
+
+              // if (user && user.id) {
+              //   likeProduct({ owner: user.id, product: film.id });
+              // }
+            }}>
+            <FavoriteIcon />
+          </div>
+        )}
         <input
+          className="card-comment"
           value={comment}
           onChange={(ivent) => setComment(ivent.target.value)}
-          placeholder="WriteyourPenis"></input>
-        <button onClick={() => commentProduct({ body: comment, product: item.id })}>send</button>
+          placeholder="leave comment"></input>
+        <button onClick={() => commentProduct({ body: comment, product: film.id })}>send</button>
       </div>
     </div>
   );

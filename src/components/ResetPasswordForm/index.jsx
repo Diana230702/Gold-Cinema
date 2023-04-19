@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { useAuth } from "../../contexts/auth/AuthProvider";
 import { useNavigate } from "react-router-dom";
 import '../ResetPasswordForm/style.css'
+import CatchingPokemonIcon from '@mui/icons-material/CatchingPokemon';
 
 const initState = {
   password: "",
@@ -36,6 +37,7 @@ const ResetPasswordForm = () => {
 
   return (
     <Box className="resetWrapper" component="form" onSubmit={onSubmit}>
+      <CatchingPokemonIcon sx={{ m: 1 }}/>
       <TextField
         name="forgot_password_reset"
         placeholder="Вставьте код с сообщения сюда"

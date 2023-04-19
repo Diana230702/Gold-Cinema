@@ -7,7 +7,7 @@ const Filter = ({ products }) => {
   const buttonRef = useRef(null);
 
   useEffect(() => {
-    buttonRef.current.click(); // Вызываем клик на кнопке при монтировании компонента
+    buttonRef.current.click();
   }, []);
 
   const [selectedCategory, setSelectedCategory] = useState("всe");

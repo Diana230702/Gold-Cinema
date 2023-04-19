@@ -3,7 +3,7 @@ import "../Footer/Footer.css";
 
 const Footer = () => {
   return (
-    <div>
+    <div className="Footer">
       <div class="footerMainContainer">
         <div class="footerDataContainer">
           <div class="footerInnerContainer">
@@ -20,28 +20,6 @@ const Footer = () => {
               <div class="footHeader" style={{ marginLeft: "30%" }}>
                 Links
               </div>
-              <div class="footBody">
-                <ul class="links-list">
-                  <li>
-                    <a>Link 1</a>
-                  </li>
-                  <li>
-                    <a>Link 2</a>
-                  </li>
-                  <li>
-                    <a>Link 3</a>
-                  </li>
-                  <li>
-                    <a>Link 4</a>
-                  </li>
-                  <li>
-                    <a>Link 5</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div class="fotLinks">
-              <div class="footHeader">Categories</div>
               <div class="footBody">
                 <ul class="links-list">
                   <li>

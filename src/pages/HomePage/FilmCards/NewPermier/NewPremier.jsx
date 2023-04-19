@@ -8,7 +8,6 @@ import '../NewPermier/NewPremier.css';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { useProducts } from '../../../../contexts/ProductContextProvider';
-import { useAuth } from '../../../../contexts/auth/AuthProvider';
 
 const NewPremier = ({ films }) => {
   // const [isLiked, setIsLiked] = useState(false);
@@ -63,9 +62,6 @@ const NewPremier = ({ films }) => {
 function Item({ film }) {
   const { likeProduct } = useProducts();
   const [isLiked, setIsLiked] = useState(true);
-  const handleClick = (product) => {
-    console.log('product id:', product.id);
-  };
 
   return (
     <div key={film.id} className="card">
