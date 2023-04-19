@@ -29,7 +29,7 @@ const ProductCard = ({ item }) => {
         <button className="delete-btn" onClick={() => deleteProduct(item.id)}>
           Delete{" "}
         </button>
-
+        <RatingComponent />
         <IconButton onClick={() => postFavoriteProduct(item)}>
           <TurnedIn sx={{ color: "white" }} />
         </IconButton>

@@ -1,0 +1,81 @@
+.address {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 50px;
+  padding-right: 2%;
+}
+.input1 {
+  margin-left: 13%;
+  width: 100%;
+  border: 2px solid black;
+  height: 9%;
+  font-size: 25px;
+  padding: 12px 20px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+.zagalovok {
+  margin-left: 13%;
+  font-size: 27px;
+}
+.pay_container {
+  display: flex;
+  padding: 10% 10%;
+}
+
+.img_cart {
+  width: 60%;
+  margin-left: 12%;
+}
+.input2 {
+  margin-left: 13%;
+  width: 60%;
+  border: 2px solid black;
+  height: 6%;
+  font-size: 25px;
+  padding: 12px 20px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+.btn_submit {
+  margin-left: 13%;
+  background-color: red; /* Green */
+  border: none;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+@media all and (max-width: 1320px) {
+  .pay_form {
+    margin-left: 20%;
+  }
+}
+
+@media all and (max-width: 1001px) {
+  .pay_container {
+    margin-left: 0%;
+    display: block;
+  }
+  .address {
+    padding-right: 21%;
+  }
+
+  .pay_form {
+    margin-left: 0%;
+  }
+  .input2 {
+    width: 81%;
+    margin-left: 10%;
+  }
+}
