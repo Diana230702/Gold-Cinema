@@ -31,6 +31,7 @@ export const authContainerProps = {
     flexDirection: "column",
     gap: "30px",
     padding: "20px",
+    paddingBottom: "200px",
   },
   noValidate: true,
   autoComplete: "off",

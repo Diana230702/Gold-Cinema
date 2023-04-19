@@ -39,9 +39,10 @@ const ProductCard = ({ item }) => {
           </a>
         </button>
         <input
+          className="card-comment"
           value={comment}
           onChange={(ivent) => setComment(ivent.target.value)}
-          placeholder="WriteyourPenis"
+          placeholder="leave comment"
         ></input>
         {/* <button onClick={() => commentProduct({ body: comment, owner: user.id, product: item.id })}>
           send

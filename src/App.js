@@ -7,15 +7,13 @@ import FavoriteContextProvider from "./contexts/FavoriteContextProvider";
 
 const App = () => {
   return (
-    <div className="app_global">
-      <FavoriteContextProvider>
-        <ProductContextProvider>
-          <Navbar />
-          <MainRoutes />
-          <Footer />
-        </ProductContextProvider>
-      </FavoriteContextProvider>
-    </div>
+    <FavoriteContextProvider>
+      <ProductContextProvider>
+        <Navbar />
+        <MainRoutes />
+        <Footer />
+      </ProductContextProvider>
+    </FavoriteContextProvider>
   );
 };
 
