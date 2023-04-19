@@ -48,10 +48,10 @@ const FilmCarousel = ({ films }) => {
         {films.map((film) => (
           <div key={film.id} className="cardsSlides">
             <div className="decsr">
-              <h3>{film.title}</h3>
-              <p>{film.description}</p>
+              <h3>{film.name}</h3>
+              {/* <p>{film.description}</p> */}
             </div>
-            <img className="imgSlde" src={film.image} />
+            <img className="imgSlde" src={film.img} />
           </div>
         ))}
       </Slider>

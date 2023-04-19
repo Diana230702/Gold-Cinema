@@ -62,17 +62,15 @@ const NewPremier = ({ films }) => {
 
 function Item({ film }) {
   const { likeProduct } = useProducts();
-  const { user } = useAuth();
   const [isLiked, setIsLiked] = useState(true);
   const handleClick = (product) => {
-    console.log('product id:', product.id); // убедиться, что product.id определен
-    likeProduct({ product_id: product.id });
+    console.log('product id:', product.id);
   };
 
   return (
     <div key={film.id} className="card">
       <div className="card-top">
-        <img src={film.img} alt="" />
+        <img src={film.image} alt="" />
       </div>
       <div className="decsr">
         <h3>{film.title}</h3>
@@ -80,12 +78,7 @@ function Item({ film }) {
           <div
             onClick={() => {
               setIsLiked(false);
-              handleClick();
-              console.log('user', user);
-
-              if (user && user.id) {
-                likeProduct({ owner: user.id, product: film.id });
-              }
+              likeProduct({ product: film.id });
             }}>
             <FavoriteBorderIcon />
           </div>

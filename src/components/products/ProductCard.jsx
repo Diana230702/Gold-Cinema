@@ -9,7 +9,7 @@ import { useContext } from 'react';
 
 const ProductCard = ({ item }) => {
   const { postFavoriteProduct, deleteFavoriteProduct } = useFavorite();
-  const { deleteProduct } = useProducts();
+  const { deleteProduct, commentProduct } = useProducts();
   const navigate = useNavigate();
   const [comment, setComment] = useState('');
   return (
@@ -39,9 +39,7 @@ const ProductCard = ({ item }) => {
           value={comment}
           onChange={(ivent) => setComment(ivent.target.value)}
           placeholder="WriteyourPenis"></input>
-        {/* <button onClick={() => commentProduct({ body: comment, owner: user.id, product: item.id })}>
-          send
-        </button> */}
+        <button onClick={() => commentProduct({ body: comment, product: item.id })}>send</button>
       </div>
     </div>
   );
