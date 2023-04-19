@@ -78,3 +78,16 @@
   margin-top: 7px;
   border-radius: 5px;
 }
+
+.imageBefore {
+  width: 40%;
+  margin-bottom: 10px;
+}
+
+.image_p {
+  color: white;
+}
+
+.raiting {
+  background-color: #ffffff4e;
+}
