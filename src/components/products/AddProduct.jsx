@@ -31,7 +31,7 @@ const AddProduct = () => {
     <div>
       <div className="adminPage_wrapper">
         <div className="admin-content">
-          <h2 className="adminPage_h2">Admin Page</h2>
+          <h3 className="adminPage_h2">Admin Page</h3>
           <input
             className="adminPage_inputs"
             type="text"

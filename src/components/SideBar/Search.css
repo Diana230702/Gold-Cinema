@@ -4,11 +4,11 @@
 .search_form {
   position: relative;
   width: 300px;
-  margin-left: auto;
+  margin-left: 66%;
   height: 42px;
 }
 .search_inp {
-  height: 42px;
+  height: 35px;
   width: 0;
   padding: 0 42px 0 15px;
   border: none;
@@ -30,11 +30,48 @@
 .search_btn {
   background: #683b4d;
   border: none;
-  height: 42px;
+  height: 35px;
   width: 42px;
   position: absolute;
   top: 0;
   right: 0;
   cursor: pointer;
-  border-radius: 15px;
+  border-radius: 25px;
+}
+@media all and (max-width: 950px) {
+  .search_form {
+    margin-left: 63%;
+  }
+}
+@media all and (max-width: 800px) {
+  .search_form {
+    margin-left: 56%;
+  }
+}
+@media all and (max-width: 700px) {
+  .search_form {
+    margin-left: 50%;
+  }
+}
+
+@media all and (max-width: 600px) {
+  .search_form {
+    margin-left: 30%;
+  }
+}
+
+@media all and (max-width: 500px) {
+  .search_form {
+    margin-left: 20%;
+  }
+}
+@media all and (max-width: 400px) {
+  .search_form {
+    margin-left: 10%;
+  }
+}
+@media all and (max-width: 300px) {
+  .search_form {
+    margin-left: 5%;
+  }
 }

@@ -49,7 +49,6 @@ const ProductContextProvider = ({ children }) => {
         config
       );
       dispatch({ type: "GET_PRODUCTS", payload: res.data });
-      console.log(res.data);
     } catch (error) {
       console.log(error);
     }
@@ -138,6 +137,7 @@ const ProductContextProvider = ({ children }) => {
       const res = await axios.get(`${API}/products/${id}/ratings/`, config);
       dispatch({ type: "GET_ONE_PRODUCT", payload: res.data });
       console.log(res);
+      console.log(res.data);
     } catch (error) {
       console.log(error);
     }

@@ -10,7 +10,7 @@ import { ToastContainer } from "react-toastify";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-const AppWithRefreshToken = withAuth(App)
+const AppWithRefreshToken = withAuth(App);
 
 root.render(
   <BrowserRouter>
