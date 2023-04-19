@@ -1,0 +1,14 @@
+.rating {
+  display: inline-flex;
+  align-items: center;
+  color: #ffc107;
+}
+
+.rating i {
+  font-size: 1.2rem;
+  margin-right: 0.2rem;
+}
+
+.rating i:last-child {
+  margin-right: 0;
+}
