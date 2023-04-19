@@ -11,7 +11,7 @@ const App = () => {
       <ProductContextProvider>
         <Navbar />
         <MainRoutes />
-        <Footer />
+        {/* <Footer /> */}
       </ProductContextProvider>
     </FavoriteContextProvider>
   );
