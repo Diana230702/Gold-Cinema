@@ -1,33 +1,33 @@
-import React, { useContext, useReducer } from 'react';
-import { AuthContext } from './AuthContext';
-import axios from 'axios';
+import React, { useContext, useReducer, useState } from "react";
+import { AuthContext } from "./AuthContext";
+import axios from "axios";
 import {
   implementErrorWithAction,
   implementSuccessWithAction,
-} from '../../helpers/implementAction';
-import { useApp } from '../app/AppProvider';
+} from "../../helpers/implementAction";
+import { useApp } from "../app/AppProvider";
 
-const API_URL = 'http://35.198.103.37';
+const API_URL = "http://35.198.103.37";
 
-const LOGIN = 'accounts/login';
-const REGISTER = 'accounts/register';
+const LOGIN = "accounts/login";
+const REGISTER = "accounts/register";
 
-const REFRESH = 'accounts/refresh';
-const IS_AUTH = 'IS_AUTH';
-const LIKES_CHANGE = 'LIKES_CHANGE';
-const SET_USER_LIKES = 'SET_USER_LIKES';
-const REQUEST_ERROR = 'REQUEST_ERROR';
+const REFRESH = "accounts/refresh";
+const IS_AUTH = "IS_AUTH";
+const LIKES_CHANGE = "LIKES_CHANGE";
+const SET_USER_LIKES = "SET_USER_LIKES";
+const REQUEST_ERROR = "REQUEST_ERROR";
 
-const TOKEN_FIELD = 'token';
-const TOKEN_REFRESH_FIELD = 'refresh';
-const USER_FIELD = 'user';
-
+const TOKEN_FIELD = "token";
+const TOKEN_REFRESH_FIELD = "refresh";
+const USER_FIELD = "user";
+console.log(USER_FIELD);
 const initialState = {
   user: {},
   pending: false,
   error: {},
   owner: null,
-  isAuth: !!localStorage.getItem('token'),
+  isAuth: !!localStorage.getItem("token"),
 };
 
 const reducer = (state = initialState, action) => {
@@ -75,9 +75,14 @@ const reducer = (state = initialState, action) => {
 export const useAuth = () => useContext(AuthContext);
 
 const AuthProvider = ({ children }) => {
-  const { localStorageSetItem, localStorageRemoveAll, localStorageGetItemByKey } = useApp();
+  const {
+    localStorageSetItem,
+    localStorageRemoveAll,
+    localStorageGetItemByKey,
+  } = useApp();
   const [userState, dispatch] = useReducer(reducer, initialState);
-
+  const [emailUser, setEmailUser] = useState(null);
+  console.log(emailUser);
   const resetPasswordRequest = async (data, onSuccess) => {
     try {
       await axios.put(`${API_URL}/accounts/forgot/`, data);
@@ -102,7 +107,7 @@ const AuthProvider = ({ children }) => {
 
   const refreshToken = async () => {
     try {
-      const refreshToken = localStorageGetItemByKey('refresh');
+      const refreshToken = localStorageGetItemByKey("refresh");
 
       const { data } = await axios.post(`${API_URL}/${REFRESH}/`, {
         refresh: refreshToken,
@@ -128,14 +133,20 @@ const AuthProvider = ({ children }) => {
 
   const loginRequest = async (userCredentials, onSuccess) => {
     try {
-      const { data } = await axios.post(`${API_URL}/${LOGIN}/`, userCredentials);
+      const { data } = await axios.post(
+        `${API_URL}/${LOGIN}/`,
+        userCredentials
+      );
 
       implementSuccessWithAction(dispatch, LOGIN, data.user);
 
       localStorageSetItem(TOKEN_FIELD, data.access);
       localStorageSetItem(TOKEN_REFRESH_FIELD, data.refresh);
-      localStorageSetItem(USER_FIELD, JSON.stringify({ user: userCredentials.email }));
-
+      localStorageSetItem(
+        USER_FIELD,
+        JSON.stringify({ user: userCredentials.email })
+      );
+      setEmailUser(userCredentials.email);
       implementSuccessWithAction(dispatch, IS_AUTH, true);
       onSuccess();
     } catch (error) {
@@ -160,7 +171,9 @@ const AuthProvider = ({ children }) => {
     userLoading: userState.pending,
   };
 
-  return <AuthContext.Provider value={defaultValue}>{children}</AuthContext.Provider>;
+  return (
+    <AuthContext.Provider value={defaultValue}>{children}</AuthContext.Provider>
+  );
 };
 
 export default AuthProvider;

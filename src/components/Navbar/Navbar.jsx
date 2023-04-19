@@ -18,7 +18,7 @@ const LinkStyle = {
   color: "white",
 };
 
-const ADMIN = "admin@gmail.com";
+const ADMIN = '{"user":"admin@gmail.com"}';
 
 // ! links----------------------------------------------------------
 const pages = [
@@ -31,7 +31,10 @@ const pages = [
 // ! links----------------------------------------------------------
 
 const Navbar = () => {
-  const { isAuth, logOut, user } = useAuth();
+  const { isAuth, logOut } = useAuth();
+  // console.log();
+  const userEmail = localStorage.getItem("user");
+  console.log(userEmail);
 
   const navigate = useNavigate();
   return (
@@ -51,7 +54,7 @@ const Navbar = () => {
         Выбрать фильм
       </Link>
 
-      {user === ADMIN ? (
+      {userEmail === ADMIN ? (
         <Link className="admin-nav-link" to="/admin">
           Админ
         </Link>
