@@ -10,6 +10,8 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import { useProducts } from "../../../../contexts/ProductContextProvider";
 import { useAuth } from "../../../../contexts/auth/AuthProvider";
 
+
+
 const NewPremier = ({ films }) => {
   const settings = {
     dots: true,
@@ -61,8 +63,8 @@ const NewPremier = ({ films }) => {
 
 function Item({ film }) {
   const { likeProduct } = useProducts();
-  const { user } = useAuth();
   const [isLiked, setIsLiked] = useState(true);
+
 
   return (
     <div key={film.id} className="card">

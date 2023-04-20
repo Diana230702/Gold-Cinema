@@ -14,9 +14,9 @@
 .CheckButton{
   color: white;
 }
-h2{ 
+/* h2{ 
   position: absolute;
-}
+} */
 .itemsSlider{
   display: flex;
   flex-direction: column;
