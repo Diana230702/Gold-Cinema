@@ -12,23 +12,23 @@ import dick1 from './Img/1_0000_maxresdefault.jpg';
 
 export const collection = [
   {
-    img: 'https://wallpapers.moviemania.io/desktop/movie/122917/5cc497/the-hobbit-the-battle-of-the-five-armies-desktop-wallpaper.jpg?w=2032&h=1148',
-    name: 'Sonic',
+    img: "https://wallpapers.moviemania.io/desktop/movie/122917/5cc497/the-hobbit-the-battle-of-the-five-armies-desktop-wallpaper.jpg?w=2032&h=1148",
+    name: "Sonic",
   },
   {
-    img: 'https://wallpapers.moviemania.io/desktop/movie/157336/410e26/interstellar-desktop-wallpaper.jpg?w=2032&h=1148',
-    name: 'Sonic',
+    img: "https://wallpapers.moviemania.io/desktop/movie/157336/410e26/interstellar-desktop-wallpaper.jpg?w=2032&h=1148",
+    name: "Sonic",
   },
   {
-    img: 'https://wallpapers.moviemania.io/desktop/tv/1399/26ba6e/game-of-thrones-desktop-wallpaper.jpg?w=2032&h=1148',
-    name: 'Sonic',
+    img: "https://wallpapers.moviemania.io/desktop/tv/1399/26ba6e/game-of-thrones-desktop-wallpaper.jpg?w=2032&h=1148",
+    name: "Sonic",
   },
   {
-    img: 'https://wallpapers.moviemania.io/desktop/movie/10527/aae39f/madagascar-escape-2-africa-desktop-wallpaper.jpg?w=2032&h=1148',
-    name: 'Sonic',
+    img: "https://wallpapers.moviemania.io/desktop/movie/10527/aae39f/madagascar-escape-2-africa-desktop-wallpaper.jpg?w=2032&h=1148",
+    name: "Sonic",
+  
   },
 ];
-
 const HomePage = () => {
   const { getProducts, products } = useProducts();
   // console.log(localStorage.getItem("token"));
@@ -42,6 +42,9 @@ const HomePage = () => {
   return (
     <div className="MainHomePage">
       <FilmCarousel films={collection} />
+      <NewPremier films={products} />
+      <NewPremier films={products} />
+
       <NewPremier films={products} />
       <NewPremier films={products} />
 

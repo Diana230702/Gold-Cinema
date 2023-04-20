@@ -1,9 +1,10 @@
-import React from 'react';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-import '../HomePage/FlimCarousel.css';
-import { useNavigate } from 'react-router-dom';
+import React from "react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import "../HomePage/FlimCarousel.css";
+import { useNavigate } from "react-router-dom";
+
 
 const FilmCarousel = ({ films }) => {
   const navigate = useNavigate();
@@ -56,7 +57,9 @@ const FilmCarousel = ({ films }) => {
             <img
               className="imgSlde"
               src={film.img}
-              onClick={() => navigate(`/productList/${film.id}`)}
+
+              onClick={() => navigate(`/productList?/${film.id}`)}
+
             />
           </div>
         ))}
