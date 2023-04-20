@@ -32,6 +32,17 @@ const ProductContextProvider = ({ children }) => {
   const navigate = useNavigate();
   const [state, dispatch] = useReducer(reducer, INIT_STATE);
 
+  // function moreRepeatFunction() {
+  //   const tokens = JSON.parse(localStorage.getItem("token"));
+  //   const Authorization = `Bearer ${tokens}`;
+
+  //   const config = {
+  //     headers: {
+  //       Authorization,
+  //     },
+  //   };
+  //   return config;
+  // }
   // ! get request //
 
   const getProducts = async () => {
@@ -47,6 +58,7 @@ const ProductContextProvider = ({ children }) => {
       const res = await axios.get(`${API}/products/${window.location.search}`, config);
       dispatch({ type: 'GET_PRODUCTS', payload: res.data });
       console.log(res.data);
+      console.log(res);
     } catch (error) {
       console.log(error);
     }
@@ -132,15 +144,22 @@ const ProductContextProvider = ({ children }) => {
           Authorization,
         },
       };
+<<<<<<< HEAD
       const res = await axios.get(`${API}/products/${id}/ratings/`, config);
       dispatch({ type: 'GET_ONE_PRODUCT', payload: res.data });
       console.log(res);
+=======
+      const res = await axios.get(`${API}/products/${id}/`, config);
+      dispatch({ type: "GET_ONE_PRODUCT", payload: res.data });
+>>>>>>> 5598a4f7d3de3288f54aae47d2b0444a5ffbd17e
     } catch (error) {
       console.log(error);
     }
   };
+
   // ! oneProduct//
 
+<<<<<<< HEAD
   //! LikeProduct
   const likeProduct = async (body) => {
     try {
@@ -187,13 +206,27 @@ const ProductContextProvider = ({ children }) => {
     }
   };
   //! EndCommentProduct
+=======
+>>>>>>> 5598a4f7d3de3288f54aae47d2b0444a5ffbd17e
   // * Search
   const liveSearch = async () => {
     const res = await axios.get(`${API}/products/${window.location.search}`);
   };
-
   // ! search
 
+  // // *Pagination
+  // const PaginationCount = async () => {
+  //   const res = await axios.get(`${API}/products/`);
+  //   let count = res.data.count / 16.Math.;
+  //   console.log(count);
+  //   return count;
+  // };
+
+  // const PaginationLimit = () => {
+  //   let countPages = PaginationCount();
+  //   console.log(countPages);
+  // };
+  // PaginationLimit();
   const values = {
     createProduct,
     deleteProduct,
@@ -203,13 +236,18 @@ const ProductContextProvider = ({ children }) => {
     editProduct,
     oneProduct: state.oneProduct,
     getOneProduct,
+    pages: state.pages,
     liveSearch,
     pages: state.pages,
-    likeProduct,
-    CommentProduct,
   };
+<<<<<<< HEAD
 
   return <productContext.Provider value={values}>{children}</productContext.Provider>;
+=======
+  return (
+    <productContext.Provider value={values}>{children}</productContext.Provider>
+  );
+>>>>>>> 5598a4f7d3de3288f54aae47d2b0444a5ffbd17e
 };
 
 export default ProductContextProvider;

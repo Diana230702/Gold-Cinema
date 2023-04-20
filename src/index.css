@@ -16,6 +16,9 @@ body {
   margin: 0;
   height: 100%;
 }
+body {
+  background-color: black;
+}
 
 /* .Footer {
   margin-top: 27%;

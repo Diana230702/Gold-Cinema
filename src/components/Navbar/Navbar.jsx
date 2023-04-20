@@ -18,6 +18,8 @@ const LinkStyle = {
   color: "white",
 };
 
+const ADMIN = '{"user":"admin@gmail.com"}';
+
 // ! links----------------------------------------------------------
 const pages = [
   {
@@ -29,7 +31,11 @@ const pages = [
 // ! links----------------------------------------------------------
 
 const Navbar = () => {
-  const { isAuth, logOut } = useAuth();
+  const { isAuth, logOut, emailUser } = useAuth();
+  // console.log();
+  const userEmail = localStorage.getItem("user");
+
+  console.log(userEmail);
 
   const navigate = useNavigate();
   return (
@@ -49,9 +55,11 @@ const Navbar = () => {
         Выбрать фильм
       </Link>
 
-      <Link className="admin-nav-link" to="/admin">
-        Админ
-      </Link>
+      {userEmail === ADMIN ? (
+        <Link className="admin-nav-link" to="/admin">
+          Админ
+        </Link>
+      ) : null}
 
       {isAuth && (
         <IconButton onClick={() => navigate("/cart")}>
@@ -62,6 +70,11 @@ const Navbar = () => {
       {isAuth && (
         <Link className="formOrder-btn" to="/formOrder">
           Поддержать нас
+        </Link>
+      )}
+      {isAuth && (
+        <Link className="formOrder-btn" to="/auth">
+          <p className="user_acc">{emailUser}</p>
         </Link>
       )}
 

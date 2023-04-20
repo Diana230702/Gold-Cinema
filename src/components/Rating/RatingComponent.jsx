@@ -12,7 +12,8 @@ function RatingComponent() {
         name="simple-controlled"
         value={value}
         onChange={(event, newValue) => {
-          setValue(newValue);
+          // setValue(newValue);
+          setValue(event.target.value);
         }}
       />
     </div>

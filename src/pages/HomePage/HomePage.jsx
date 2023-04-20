@@ -31,13 +31,13 @@ export const collection = [
 
 const HomePage = () => {
   const { getProducts, products } = useProducts();
-  console.log(localStorage.getItem('token'));
+  // console.log(localStorage.getItem("token"));
   const useNaviage = useNavigate();
   useEffect(() => {
     getProducts();
   }, []);
   useEffect(() => {
-    console.log(products);
+    // console.log(products);
   }, [products]);
   return (
     <div className="MainHomePage">

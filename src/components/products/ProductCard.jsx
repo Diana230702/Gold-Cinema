@@ -8,7 +8,14 @@ import { useFavorite } from '../../contexts/FavoriteContextProvider';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 
+<<<<<<< HEAD
 const ProductCard = ({ item, film }) => {
+=======
+const ProductCard = ({ item }) => {
+  const ADMIN = '{"user":"admin@gmail.com"}';
+  const userEmail = localStorage.getItem("user");
+
+>>>>>>> 5598a4f7d3de3288f54aae47d2b0444a5ffbd17e
   const { postFavoriteProduct, deleteFavoriteProduct } = useFavorite();
   const { deleteProduct, likeProduct } = useProducts();
   const navigate = useNavigate();
@@ -34,12 +41,33 @@ const ProductCard = ({ item, film }) => {
         <p className="productCard_p">{item.title}</p>
         <p>{item.year}</p>
         <p className="productCard_p">{item.price}</p>
+<<<<<<< HEAD
         <button className="edit-btn" onClick={() => navigate(`/edit/${item.id}`)}>
           Edit
         </button>
         <button className="delete-btn" onClick={() => deleteProduct(item.id)}>
           Delete{' '}
         </button>
+=======
+        {userEmail === ADMIN ? (
+          <>
+            <button
+              className="edit-btn"
+              onClick={() => navigate(`/edit/${item.id}`)}
+            >
+              Edit
+            </button>
+            <button
+              className="delete-btn"
+              onClick={() => deleteProduct(item.id)}
+            >
+              Delete{" "}
+            </button>
+          </>
+        ) : null}
+
+        <RatingComponent />
+>>>>>>> 5598a4f7d3de3288f54aae47d2b0444a5ffbd17e
         <IconButton onClick={() => postFavoriteProduct(item)}>
           <TurnedIn sx={{ color: 'white' }} />
         </IconButton>
