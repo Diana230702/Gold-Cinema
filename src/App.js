@@ -1,9 +1,9 @@
-import React from "react";
-import Navbar from "./components/Navbar/Navbar";
-import ProductContextProvider from "./contexts/ProductContextProvider";
-import MainRoutes from "./Routes/MainRoutes";
-import Footer from "./components/Footer/Footer";
-import FavoriteContextProvider from "./contexts/FavoriteContextProvider";
+import React from 'react';
+import Navbar from './components/Navbar/Navbar';
+import ProductContextProvider from './contexts/ProductContextProvider';
+import MainRoutes from './Routes/MainRoutes';
+import Footer from './components/Footer/Footer';
+import FavoriteContextProvider from './contexts/FavoriteContextProvider';
 
 const App = () => {
   return (

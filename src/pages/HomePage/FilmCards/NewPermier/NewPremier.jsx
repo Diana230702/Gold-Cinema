@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -8,7 +8,6 @@ import '../NewPermier/NewPremier.css';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { useProducts } from '../../../../contexts/ProductContextProvider';
-import { useAuth } from '../../../../contexts/auth/AuthProvider';
 
 const NewPremier = ({ films }) => {
   // const [isLiked, setIsLiked] = useState(false);
@@ -62,12 +61,11 @@ const NewPremier = ({ films }) => {
 
 function Item({ film }) {
   const { likeProduct } = useProducts();
-  const { user } = useAuth();
   const [isLiked, setIsLiked] = useState(true);
-  const handleClick = (product) => {
-    console.log('product id:', product.id); // убедиться, что product.id определен
-    likeProduct({ product_id: product.id });
-  };
+
+  // делаю стэйт
+  // делаю юз эффект
+  // потом в тот стэйт передаю в продукт
 
   return (
     <div key={film.id} className="card">
