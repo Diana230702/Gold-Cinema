@@ -1,10 +1,12 @@
-import React from 'react';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-import '../HomePage/FlimCarousel.css';
+import React from "react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import "../HomePage/FlimCarousel.css";
+import { useNavigate } from "react-router-dom";
 
 const FilmCarousel = ({ films }) => {
+  const navigate = useNavigate();
   const settings = {
     dots: true,
     infinite: false,
@@ -48,10 +50,14 @@ const FilmCarousel = ({ films }) => {
         {films.map((film) => (
           <div key={film.id} className="cardsSlides">
             <div className="decsr">
-              <h3>{film.title}</h3>
-              <p>{film.description}</p>
+              <h3>{film.name}</h3>
+              {/* <p>{film.description}</p> */}
             </div>
-            <img className="imgSlde" src={film.image} />
+            <img
+              className="imgSlde"
+              src={film.img}
+              onClick={() => navigate(`/productList?/${film.id}`)}
+            />
           </div>
         ))}
       </Slider>

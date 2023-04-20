@@ -31,7 +31,7 @@ const pages = [
 // ! links----------------------------------------------------------
 
 const Navbar = () => {
-  const { isAuth, logOut } = useAuth();
+  const { isAuth, logOut, emailUser } = useAuth();
   // console.log();
   const userEmail = localStorage.getItem("user");
   console.log(userEmail);

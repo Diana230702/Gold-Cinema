@@ -1,17 +1,16 @@
-import React, { useState } from 'react';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-import '../NewPermier/NewPremier.css';
+import React, { useState } from "react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import "../NewPermier/NewPremier.css";
 // import { useProducts } from '../../contexts/ProductContextProvider';
 
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import { useProducts } from '../../../../contexts/ProductContextProvider';
-import { useAuth } from '../../../../contexts/auth/AuthProvider';
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import { useProducts } from "../../../../contexts/ProductContextProvider";
+import { useAuth } from "../../../../contexts/auth/AuthProvider";
 
 const NewPremier = ({ films }) => {
-  // const [isLiked, setIsLiked] = useState(false);
   const settings = {
     dots: true,
     infinite: false,
@@ -64,15 +63,11 @@ function Item({ film }) {
   const { likeProduct } = useProducts();
   const { user } = useAuth();
   const [isLiked, setIsLiked] = useState(true);
-  const handleClick = (product) => {
-    console.log('product id:', product.id); // убедиться, что product.id определен
-    likeProduct({ product_id: product.id });
-  };
 
   return (
     <div key={film.id} className="card">
       <div className="card-top">
-        <img src={film.img} alt="" />
+        <img src={film.image} alt="" />
       </div>
       <div className="decsr">
         <h3>{film.title}</h3>
@@ -80,25 +75,21 @@ function Item({ film }) {
           <div
             onClick={() => {
               setIsLiked(false);
-              handleClick();
-              console.log('user', user);
 
-              if (user && user.id) {
-                likeProduct({ owner: user.id, product: film.id });
-              }
-            }}>
+              likeProduct({ product: film.id });
+            }}
+          >
             <FavoriteBorderIcon />
           </div>
         ) : (
           <div
             onClick={() => {
-              console.log('TEST');
+              console.log("TEST");
               setIsLiked(true);
 
-              // if (user && user.id) {
-              //   likeProduct({ owner: user.id, product: film.id });
-              // }
-            }}>
+              likeProduct({ owner: user.id, product: film.id });
+            }}
+          >
             <FavoriteIcon />
           </div>
         )}
