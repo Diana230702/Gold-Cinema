@@ -53,7 +53,11 @@ const FilmCarousel = ({ films }) => {
               <h3>{film.name}</h3>
               {/* <p>{film.description}</p> */}
             </div>
-            <img className="imgSlde" src={film.img} onClick={() => navigate(`/productList`)} />
+            <img
+              className="imgSlde"
+              src={film.img}
+              onClick={() => navigate(`/productList/${film.id}`)}
+            />
           </div>
         ))}
       </Slider>

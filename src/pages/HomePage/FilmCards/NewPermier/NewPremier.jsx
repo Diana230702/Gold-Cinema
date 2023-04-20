@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -63,10 +63,14 @@ function Item({ film }) {
   const { likeProduct } = useProducts();
   const [isLiked, setIsLiked] = useState(true);
 
+  // делаю стэйт
+  // делаю юз эффект
+  // потом в тот стэйт передаю в продукт
+
   return (
     <div key={film.id} className="card">
       <div className="card-top">
-        <img src={film.image} alt="" />
+        <img src={film.img} alt="" />
       </div>
       <div className="decsr">
         <h3>{film.title}</h3>
@@ -74,7 +78,12 @@ function Item({ film }) {
           <div
             onClick={() => {
               setIsLiked(false);
-              likeProduct({ product: film.id });
+              handleClick();
+              console.log('user', user);
+
+              if (user && user.id) {
+                likeProduct({ owner: user.id, product: film.id });
+              }
             }}>
             <FavoriteBorderIcon />
           </div>

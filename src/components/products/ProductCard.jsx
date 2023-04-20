@@ -5,17 +5,27 @@ import '../products/Products.css';
 import { IconButton } from '@mui/material';
 import { TurnedIn } from '@mui/icons-material';
 import { useFavorite } from '../../contexts/FavoriteContextProvider';
-
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 
 const ProductCard = ({ item, film }) => {
   const { postFavoriteProduct, deleteFavoriteProduct } = useFavorite();
-  const { deleteProduct, commentProduct } = useProducts();
+  const { deleteProduct, likeProduct } = useProducts();
   const navigate = useNavigate();
-  const { likeProduct } = useProducts();
   const [comment, setComment] = useState('');
+  const [comments, setComments] = useState([]);
   const [isLiked, setIsLiked] = useState(true);
+
+  const handleCommentSubmit = (event) => {
+    event.preventDefault();
+    const newComment = {
+      body: comment,
+      product: film.id,
+      username: 'John Doe', // replace with actual username when authentication is implemented
+    };
+    setComments((prevComments) => [...prevComments, newComment]);
+    setComment('');
+  };
 
   return (
     <div className="vvv">
@@ -30,7 +40,6 @@ const ProductCard = ({ item, film }) => {
         <button className="delete-btn" onClick={() => deleteProduct(item.id)}>
           Delete{' '}
         </button>
-        <RatingComponent />
         <IconButton onClick={() => postFavoriteProduct(item)}>
           <TurnedIn sx={{ color: 'white' }} />
         </IconButton>
@@ -50,12 +59,7 @@ const ProductCard = ({ item, film }) => {
         ) : (
           <div
             onClick={() => {
-              console.log('TEST');
               setIsLiked(true);
-
-              // if (user && user.id) {
-              //   likeProduct({ owner: user.id, product: film.id });
-              // }
             }}>
             <FavoriteIcon />
           </div>
@@ -63,9 +67,19 @@ const ProductCard = ({ item, film }) => {
         <input
           className="card-comment"
           value={comment}
-          onChange={(ivent) => setComment(ivent.target.value)}
-          placeholder="leave comment"></input>
-        <button onClick={() => commentProduct({ body: comment, product: film.id })}>send</button>
+          onChange={(event) => setComment(event.target.value)}
+          placeholder="leave comment"
+        />
+        <button onClick={handleCommentSubmit}>Send</button>
+        <div className="comments-section">
+          {comments.map((comment, index) => (
+            <div key={index} className="comment">
+              <h4>{comment.username}</h4>
+              <p>{comment.body}</p>
+              <p>Movie: {comment.product}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
